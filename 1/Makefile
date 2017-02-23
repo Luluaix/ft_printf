@@ -6,28 +6,30 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/01/09 11:42:09 by pdamoune         ###   ########.fr        #
+#    Updated: 2017/02/22 22:37:00 by philippedamoune  ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	project
-SOURCES	=
-HEADERS	=	-I $(PATHINC) -I $(PATHLIB)/$(PATHINC)
+NAME	=	ft_printf
+SOURCES	=	main.c $(PATHLIB)/libft.a
+HEADERS	=	-I $(PATHLIB)/$(PATHINC)
 CFLAGS	=	-Wall -Wextra -Werror
 CC		=	clang
+PATHLIB	=	libft
 PATHSRC =	src
 PATHINC	=	include
 PATHOBJ	=	obj
-OBJETS	=	$(patsubst %.c,$(PATHOBJ)/%.o,$(SOURCES))
+OBJETS	=	$(patsubst %.c,$(PATHSRC)/%.c,$(SOURCES))
 
 all: $(NAME)
 
-$(PATHOBJ)/%.o: $(PATHSRC)/%.c
-	@mkdir -p $(PATHOBJ)
-	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
+# $(PATHOBJ)/%.o: $(PATHSRC)/%.c
+# 	@mkdir -p $(PATHOBJ)
+# 	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
 
 $(NAME): library
 		@$(CC) $(CFLAGS) -o $(NAME) $(OBJETS) $(HEADERS)
+		./$(NAME)
 
 lib:
 		rm -rf libft
