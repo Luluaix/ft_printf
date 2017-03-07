@@ -1,0 +1,3 @@
+[submodule "1/libft"]
+	path = 1/libft
+	url = http://github.com/luluaix/library.git
