@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:05:26 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/06 19:42:35 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/08 20:59:18 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 **    g, G 			: Same as e or E, but with the '0' on the right.
 */
 
-char	g_flags[5] = {"#+- "};
+char	g_flags[5] = {"#+- 0"};
 
 int		ft_is_flags(int c)
 {
@@ -40,8 +40,25 @@ int		ft_is_flags(int c)
 	return (0);
 }
 
-int		flags(char *str)
+int		flags(t_form *form, char **str)
 {
-	
-	return (ft_is_flags(*str));
+	int i;
+
+	ft_putendl("=== Fonction flags ===");
+	i = 0;
+	while (ft_is_flags(**str))
+	{
+		if (ft_strchr(form->flags, **str))
+			(*str)++;
+		else
+		{
+			while ((form->flags)[i])
+				i++;
+			(form->flags)[i] = **str;
+		}
+	}
+	ft_putendl("=== Fonction flags ===");
+	if (*(form->flags))
+		return (1);
+	return (0);
 }

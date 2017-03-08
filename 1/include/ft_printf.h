@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/06 19:39:07 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/08 21:48:09 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ typedef struct s_struct	 t_struct;
 
 struct		s_form
 {
-	int		flags;
+	char	flags[6];
 	int		width;
 	int		precision;
-	int		modifier;
+	char	modifier[3];
 	int		type;
 };
 
@@ -34,12 +34,12 @@ struct		s_struct
 };
 
 int		ft_printf(const char *format, ...);
-int		parsing(const char *str);
-int		flags(char *str);
-int		width(const char *str);
-int		precision(const char *str);
-int		modifier(const char *str);
-int		type(const char *str);
+int		parsing(char *str);
+int		flags(t_form *form, char **str);
+int		width(t_form *form, char **str);
+int		precision(t_form *form, char **str);
+int		modifier(t_form *form, char **str);
+int		type(t_form *form, char **str);
 int		color(const char *str);
 
 #endif

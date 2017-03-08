@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:35:01 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/06 19:16:46 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/08 21:44:03 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,12 @@
 
 char		g_modifier[4] = {"hlL"};
 
-int		ft_is_modifier(int c)
+int		modifier(t_form *form, char **str)
 {
-	int		i;
-
-	i = 0;
-	while (g_modifier[i])
-		if (c == g_modifier[i++])
-			return (1);
-	return (0);
-}
-
-int		modifier(const char *str)
-{
-	if (!ft_is_modifier(*str))
+	if (!(form->modifier[0] = *ft_strchr(g_modifier, **str)))
 		return (0);
-	return (10);
+	(*str)++;
+	if ((form->modifier[1] = *ft_strchr(g_modifier, **str)))
+		(*str)++;
+	return (1);
 }
