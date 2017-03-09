@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:05:26 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/08 20:59:18 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/09 03:27:24 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 **    g, G 			: Same as e or E, but with the '0' on the right.
 */
 
-char	g_flags[5] = {"#+- 0"};
+char	g_flags[5] = {"#+- "};
 
 int		ft_is_flags(int c)
 {
@@ -40,21 +40,28 @@ int		ft_is_flags(int c)
 	return (0);
 }
 
-int		flags(t_form *form, char **str)
+int		flags(t_form *form, char *buf)
 {
 	int i;
 
 	ft_putendl("=== Fonction flags ===");
 	i = 0;
-	while (ft_is_flags(**str))
+	while (buf++ && *buf)
 	{
-		if (ft_strchr(form->flags, **str))
-			(*str)++;
-		else
+		ft_putendl(buf);
+		ft_putendl(form->flags);
+
+		while (ft_is_flags(*buf))
 		{
-			while ((form->flags)[i])
-				i++;
-			(form->flags)[i] = **str;
+			if (ft_strchr(form->flags, *buf))
+				buf++;
+			else
+			{
+				while ((form->flags)[i])
+					i++;
+				(form->flags)[i] = *buf;
+			}
+			// ft_strcpy(buf, buf + 1);
 		}
 	}
 	ft_putendl("=== Fonction flags ===");

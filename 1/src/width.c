@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:21:55 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/08 21:11:50 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/09 03:29:08 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Specifying a minimum field width = n
 ** n 		: print n characters, completed by spaces if needed.
 ** 0n		: print n characters, completed by 0 on the left if needed.
-** *		: the next argument provide the widht.
+** *		: the next argument provide the width.
 */
 
 int		width(t_form *form, char **str)

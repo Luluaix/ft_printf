@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:30:31 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/08 21:28:09 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/09 01:59:52 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		precision(t_form *form, char **str)
 	{
 		(*str)++;
 		form->precision = ft_atoi(*str);
-		while (ft_isdigit(**str))
+		while (ft_isdigit(**str) || **str == '+' || **str == '-')
 			(*str)++;
 	}
 	return (1);

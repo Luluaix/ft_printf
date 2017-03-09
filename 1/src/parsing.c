@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/08 21:56:15 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/09 04:02:18 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int		parsing(char *str)
 	int i;
 	char	*buffer;
 	t_form	*form;
+	char	*buf;
+	char	*flag = "#-+.*0123456789";
+	char 	*last_flag = "hlLdiouxXfeEgGcsp";
+
 	ft_putendl("=== Fonction parsing ===");
 
 	i = 0;
@@ -48,14 +52,31 @@ int		parsing(char *str)
 	while (*str++ != '%')
 		i++;
 	str++;
-	ft_bzero(form->flags, 7);
-	flags(form, &str);
-	width(form, &str);
-	precision(form, &str);
-	ft_bzero(form->modifier, 3);
-	modifier(form, &str);
+	buf = str;
+	while (ft_strchr(flag, *str))
+	{
+		str++;
+		if (ft_strchr(last_flag, *str))
+		{
+			str++;
+			break;
+		}
+	}
+	buf = ft_strsub(buf, 0, str - buf);
+	ft_putendl(buf);
 	ft_putendl(str);
-	type(form, &str);
+
+	// ft_putendl(buf);
+	// ft_putendl(str);
+	ft_bzero(form->flags, 7);
+	flags(form, buf);
+	// ft_putendl(buf);
+	width(form, &buf);
+	precision(form, &buf);
+	ft_bzero(form->modifier, 3);
+	modifier(form, &buf);
+	ft_putendl(str);
+	type(form, &buf);
 	display_struct(form);
 
 

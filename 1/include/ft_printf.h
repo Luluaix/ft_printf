@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/08 21:48:09 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/09 02:39:00 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ struct		s_struct
 
 int		ft_printf(const char *format, ...);
 int		parsing(char *str);
-int		flags(t_form *form, char **str);
+int		flags(t_form *form, char *str);
 int		width(t_form *form, char **str);
 int		precision(t_form *form, char **str);
 int		modifier(t_form *form, char **str);
