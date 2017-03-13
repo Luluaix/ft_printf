@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:30:31 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/09 01:59:52 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/13 16:49:59 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,26 @@
 
 int		precision(t_form *form, char **str)
 {
+	ft_putendl("=== Fonction PRECISION ===");
 	if (**str != '.')
-		form->precision = 0;
+	{
+		ft_putendl("=== Fin PRECISION 0 ===");
+		return (0);
+	}
 	else
 	{
 		(*str)++;
+		// while (flags(form, str))
+		// 	(*str)++;
 		form->precision = ft_atoi(*str);
-		while (ft_isdigit(**str) || **str == '+' || **str == '-')
+		while (flags(form, str))
+		{
+			form->width = 0;
+			(*str)++;
+		}
+		while (ft_isdigit(**str))
 			(*str)++;
 	}
+	ft_putendl("=== Fin PRECISION 1 ===");
 	return (1);
 }

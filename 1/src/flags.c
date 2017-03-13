@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:05:26 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/12 17:17:32 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/13 16:02:02 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,72 @@
 **    g, G 			: Same as e or E, but with the '0' on the right.
 */
 
-char	g_flags[5] = {"#+- "};
-
-int		ft_is_flags(int c)
+int		ft_is_flags(t_form *form, int c)
 {
 	int		i;
 
 	i = 0;
-	while (g_flags[i])
-		if (c == g_flags[i++])
-			return (1);
-	return (0);
+	if (c == '#')
+		form->flags |= FLAG_HASH;
+	else if (c == '+')
+		form->flags |= FLAG_PLUS;
+	else if (c == '-')
+		form->flags |= FLAG_MIN;
+	else if (c == ' ')
+		form->flags |= FLAG_SP;
+	else if (c == '0')
+		form->flags |= FLAG_ZERO;
+	else
+		return (0);
+	// ft_putnbr_bin(form->flags), ft_putchar('\n');
+	return (1);
 }
 
-int		flags(t_form *form, char *buf)
+int		flags(t_form *form, char **buf)
 {
-	int i;
+	int	i;
 
-	ft_putendl("=== Fonction flags ===");
+	// ft_putendl("=== Fonction FLAGS ===");
 	i = 0;
-	while (buf++ && *buf)
+	if (**buf)
 	{
-		ft_putendl(buf);
-		ft_putendl(form->flags);
-
-		while (ft_is_flags(*buf))
+		if (!ft_is_flags(form, **buf))
 		{
-			if (ft_strchr(form->flags, *buf))
-				buf++;
-			else
-			{
-				while ((form->flags)[i])
-					i++;
-				(form->flags)[i] = *buf;
-			}
-			// ft_strcpy(buf, buf + 1);
+			// ft_putendl("=== Fin FLAGS 0 ===");
+			return (0);
 		}
 	}
-	ft_putendl("=== Fonction flags ===");
-	if (*(form->flags))
-		return (1);
-	return (0);
+	// **buf == '#' ? form->flags |= FLAG_HASH : 0;
+	// **buf == '#' ? form->flags |= FLAG_HASH : 0;
+	// **buf == '#' ? form->flags |= FLAG_HASH : 0;
+	// **buf == '#' ? form->flags |= FLAG_HASH : 0;
+	// ft_putendl(buf);
+	// int i;
+	//
+	// ft_putendl("=== Fonction flags ===");
+	// i = 0;
+	// while (buf++ && *buf)
+	// {
+	// 	ft_putendl(buf);
+	// 	ft_putendl(form->flags);
+	//
+	// 	while (ft_is_flags(*buf))
+	// 	{
+	// 		if (ft_strchr(form->flags, *buf))
+	// 			buf++;
+	// 		else
+	// 		{
+	// 			while ((form->flags)[i])
+	// 				i++;
+	// 			(form->flags)[i] = *buf;
+	// 		}
+	// 		// ft_strcpy(buf, buf + 1);
+	// 	}
+	// }
+	// ft_putendl("=== Fonction flags ===");
+	// if (*(form->flags))
+	// 	return (1);
+	// ft_putendl("=== Fin FLAGS 1 ===");
+
+	return (1);
 }

@@ -14,7 +14,7 @@ NAME	=	ft_printf
 SOURCES	=	ft_printf.c parsing.c color.c flags.c width.c precision.c \
 modifier.c type.c
 HEADERS	=	-I 1/$(PATHINC) -I $(PATHLIB)/$(PATHINC)
-CFLAGS	=	-Wall -Wextra -Werror -g3
+CFLAGS	=	-Wall -Wextra -Werror -g
 CC		=	clang
 PATHLIB	=	1/libft
 PATHSRC =	1/src
@@ -29,7 +29,7 @@ all: $(NAME)
 # 	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
 
 $(NAME): library
-		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS)
+		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS) -g
 		@./$(NAME)
 
 lib:
