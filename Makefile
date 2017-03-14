@@ -6,13 +6,13 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#*   Updated: 2017/03/07 20:04:20 by philippedamoune  ###   ########.fr       *#
+#    Updated: 2017/03/14 15:49:56 by pdamoune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	ft_printf
 SOURCES	=	ft_printf.c parsing.c color.c flags.c width.c precision.c \
-modifier.c type.c
+modifier.c type.c display_struct.c
 HEADERS	=	-I 1/$(PATHINC) -I $(PATHLIB)/$(PATHINC)
 CFLAGS	=	-Wall -Wextra -Werror -g
 CC		=	clang
