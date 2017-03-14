@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:30:31 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/13 16:49:59 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/14 09:10:13 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 int		precision(t_form *form, char **str)
 {
 	ft_putendl("=== Fonction PRECISION ===");
+	ft_putendl(*str);
 	if (**str != '.')
 	{
 		ft_putendl("=== Fin PRECISION 0 ===");

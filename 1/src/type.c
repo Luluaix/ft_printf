@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:05:18 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/13 13:50:42 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:22:00 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,13 @@
 ** 			(as if by %#x or %#lx).
 */
 
-char	g_type[15] = {"diouxXfeEgGcsp"};
+// char	g_type[15] = {"diouxXfeEgGcsp"};
 
 int		type(t_form *form, char **str)
 {
-	// if (!(form->type =
-	// DEB
 	// if (!ft_strchr(g_type, **str) && !(form->type = 0))
 	// 	return (0);
 	// form->type = **str;
 	// (*str)++;
-	return (1);
+	return (0);
 }

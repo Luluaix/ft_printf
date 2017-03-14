@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/13 17:05:56 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:26:27 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_printf(const char *format, ...)
 
 	i = 12;
 	(void)&ap;
-
-	parsing("+0100.52fhlldbbbb\n");
-	printf("printf = bla, %0100. +-5 100lldb2-.0+d4-bbbb\n", 46);
+	// ft_putnbr_bin(5);
+	parsing("0100 .52h-dbbbb\n");
+	// printf("printf = bla, %0100. +-5 100lldb2-.0+d4-bbbb\n", 46);
 	// ft_putendl("string = bla, %234.b2-.0+d4-bbbb\n");
 	// printf("bla, =%cbla\n", 5);
 

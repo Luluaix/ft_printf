@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:05:26 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/13 16:02:02 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/14 07:50:31 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ int		ft_is_flags(t_form *form, int c)
 	int		i;
 
 	i = 0;
-	if (c == '#')
-		form->flags |= FLAG_HASH;
-	else if (c == '+')
-		form->flags |= FLAG_PLUS;
-	else if (c == '-')
-		form->flags |= FLAG_MIN;
-	else if (c == ' ')
-		form->flags |= FLAG_SP;
-	else if (c == '0')
-		form->flags |= FLAG_ZERO;
-	else
-		return (0);
+	// if (c == '#')
+	// 	form->flags |= FLAG_HASH;
+	// else if (c == '+')
+	// 	form->flags |= FLAG_PLUS;
+	// else if (c == '-')
+	// 	form->flags |= FLAG_MIN;
+	// else if (c == ' ')
+	// 	form->flags |= FLAG_SP;
+	// else if (c == '0')
+	// 	form->flags |= FLAG_ZERO;
+	// else
+	// 	return (0);
 	// ft_putnbr_bin(form->flags), ft_putchar('\n');
 	return (1);
 }

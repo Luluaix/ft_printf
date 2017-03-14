@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 14:35:01 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/13 17:13:18 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:01:32 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,29 @@
 ** type long double (e,E,f,g,G)
 */
 
-char		g_modifier[4] = {"hlL"};
+char		g_modifiera[4] = {"hlL"};
 
 int		ft_is_modifier(t_form *form, char *c)
 {
-	int		i;
-
-	i = 0;
-	ft_putendl("=== Fonction MODIFIER ===");
-	if (*c == 'h' && *(c + 1) == 'h')
-		form->modifier |= MODIF_HH;
-	else if (*c == 'h' && *(c - 1) != 'h')
-		form->modifier |= MODIF_H;
-	else if (*c == 'l' && *(c + 1) == 'l')
-		form->modifier |= MODIF_LL;
-	else if (*c == 'l' && *(c - 1) != 'l')
-		form->modifier |= MODIF_L;
-	else if (*c == 'j')
-		form->modifier |= MODIF_J;
-	else if (*c == 'z')
-		form->modifier |= MODIF_Z;
-	else
-		return (0);
-	// ft_putnbr_bin(form->flags), ft_putchar('\n');
+	// int		i;
+	//
+	// i = 0;
+	// ft_putendl("=== Fonction MODIFIER ===");
+	// if (*c == 'h' && *(c + 1) == 'h')
+	// 	form->modifier |= MODIF_HH;
+	// else if (*c == 'h' && *(c - 1) != 'h')
+	// 	form->modifier |= MODIF_H;
+	// else if (*c == 'l' && *(c + 1) == 'l')
+	// 	form->modifier |= MODIF_LL;
+	// else if (*c == 'l' && *(c - 1) != 'l')
+	// 	form->modifier |= MODIF_L;
+	// else if (*c == 'j')
+	// 	form->modifier |= MODIF_J;
+	// else if (*c == 'z')
+	// 	form->modifier |= MODIF_Z;
+	// else
+	// 	return (0);
+	// // ft_putnbr_bin(form->flags), ft_putchar('\n');
 	return (1);
 }
 
