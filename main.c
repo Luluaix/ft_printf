@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/13 10:56:57 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/15 18:13:50 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ int	main()
 	char *str;
 	int	i;
 
-	str = ft_strdup("blablaz%10dhilasdf%s bla");
+	str = ft_strdup("%20. +-050 0dblabla");
+	ft_printf(str);
 	// printf("\n============ %   d ============= \n", 15);
 	// printf("\n============ % - - - - d ============= \n", 15);
 	// printf("\n============ %0d ============= \n", 15);
 	// printf("\n============ %##### - + x ============= \n", 16);
 	// printf("\n============  ============= \n", -15);
-	ft_putendl("============");
 	// ft_putnbr_bin(10);
-	ft_printf(str);
+	// ft_strdel(&str);
+	// ft_printf(str);
 	i = 21;
 	// ft_putnbr(printf("bla = %.10d", i));
 	ft_strdel(&str);

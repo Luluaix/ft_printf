@@ -6,11 +6,12 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/14 17:21:13 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/15 18:14:08 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+#include <stdio.h>
 
 int		g_flag[6] = {'#', '+', '-', ' ', '0'};
 char	*g_modifiers[7] = {"ll", "hh", "h", "l", "j", "z", 0};
@@ -23,7 +24,7 @@ void 	ft_putflags(t_form *form)
 	ft_putnbr_bin(form->flags);
 	while (i < 5)
 	{
-		if (form->flags & FLAG(i))
+		if (form->flags & TEST_COMB(i))
 		{
 			ft_putstr(" | ");
 			ft_putchar(g_flag[i]);
@@ -42,7 +43,7 @@ void 	ft_putmodifier(t_form *form)
 	ft_putnbr_bin(form->modifier);
 	while (i < 5)
 	{
-		if (form->modifier & FLAG(i))
+		if (form->modifier & TEST_COMB(i))
 		{
 			ft_putstr(" | ");
 			ft_putstr(g_modifiers[i]);
@@ -56,18 +57,41 @@ void 	ft_putmodifier(t_form *form)
 void 	ft_puttype(t_form *form)
 {
 	ft_putnbr(form->type);
-	ft_putstr("                              | ");
-	ft_putchar(form->type);
-	ft_putendl(" |\n");
+	if (form->type)
+	{
+		ft_putstr("                              | ");
+		ft_putchar(form->type);
+		ft_putstr(" |");
+	}
+		ft_putstr("\n");
 }
 
-void 	display_struct(t_form *form)
+void 	display_struct(t_form *form, char *str, char *format)
 {
+	int i;
+	int j;
+
 	ft_putendl("======== STRUCTURE =========");
 	ft_putstr("form->flags     = "), ft_putflags(form);
 	ft_putstr("form->width     = "), ft_putnbrel(form->width);
 	ft_putstr("form->precision = "), ft_putnbrel(form->precision);
 	ft_putstr("form->modifier  = "), ft_putmodifier(form);
 	ft_putstr("form->type      = "), ft_puttype(form);
-	ft_putendl("======== STRUCTURE =========");
+	ft_putendl("======== STRUCTURE ========="), ft_putendl("");
+	ft_putendl("======== RESULTATS =========");
+	printf("str           = |%s|\n\n", format);
+	printf("string        = |"), printf(str), printf("|\n");
+	printf("result printf = |"), (i = printf(format)), printf("|\n");
+	j = i;
+	printf("retour printf = |%d", i);
+	while (j)
+	{
+		if (i == 0)
+			printf(" ");
+		else
+			i /= 10;
+		j--;
+	}
+	printf("|\n");
+
 }

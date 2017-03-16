@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/14 17:19:10 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/15 17:45:13 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_flags(t_form *form, char **str)
 		{
 			if (g_flags[i] == **str)
 			{
-				form->flags |= FLAG(i);
+				form->flags |= TEST_COMB(i);
 				return (1);
 			}
 			i++;
@@ -48,7 +48,7 @@ int		ft_modifier(t_form *form, char **str)
 	{
 		if (!ft_strncmp(g_modifier[i], *str, ft_strlen(g_modifier[i])))
 		{
-			form->modifier |= MODIFIER(i);
+			form->modifier |= TEST_COMB(i);
 			*str += ft_strlen(g_modifier[i]) - 1;
 			return (1);
 		}
@@ -64,10 +64,12 @@ int		ft_modifier(t_form *form, char **str)
 int		ft_precision(t_form *form, char **str)
 {
 	(*str)++;
-	form->precision = ft_atoi(*str);
+	if (**str != '0' && ft_isdigit(**str))
+		form->precision = ABS(ft_atoi(*str));
 	while (ft_flags(form, str))
 	{
 		form->width = 0;
+		ft_precision(form, str);
 		(*str)++;
 	}
 	while (ft_isdigit(**str))
@@ -91,25 +93,18 @@ int		ft_width(t_form *form, char **str)
 	return (1);
 }
 
-int		parsing(t_form *form, char *str)
+int		parsing(t_form *form, char **str)
 {
 	int i;
 
 	i = 0;
-	ft_putnbrel(form->type);
-	if (*str != '%')
-		return (-1);
-	str++;
-	while (*str)
+	// ft_putnbrel(form->type);
+	while (**str != '%' && **str)
+		(*str)++;
+	while (*((*str)++))
 	{
-		if (!ft_flags(form, &str) && !ft_width(form, &str))
-		{
-			display_struct(form);
+		if (!ft_flags(form, str) && !ft_width(form, str))
 			return (1);
-		}
-		else if (*str)
-			str++;
 	}
-	display_struct(form);
 	return (0);
 }
