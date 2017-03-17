@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/15 18:14:08 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/16 17:53:51 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,27 +71,24 @@ void 	display_struct(t_form *form, char *str, char *format)
 	int i;
 	int j;
 
+	if (form->type == 'd')
+		form->width = 0;
+	if (form->type == 's')
+		form->precision = 0;
 	ft_putendl("======== STRUCTURE =========");
 	ft_putstr("form->flags     = "), ft_putflags(form);
 	ft_putstr("form->width     = "), ft_putnbrel(form->width);
 	ft_putstr("form->precision = "), ft_putnbrel(form->precision);
 	ft_putstr("form->modifier  = "), ft_putmodifier(form);
 	ft_putstr("form->type      = "), ft_puttype(form);
-	ft_putendl("======== STRUCTURE ========="), ft_putendl("");
+	ft_putendl("======== STRUCTURE =========\n");
 	ft_putendl("======== RESULTATS =========");
-	printf("str           = |%s|\n\n", format);
-	printf("string        = |"), printf(str), printf("|\n");
-	printf("result printf = |"), (i = printf(format)), printf("|\n");
-	j = i;
-	printf("retour printf = |%d", i);
-	while (j)
-	{
-		if (i == 0)
-			printf(" ");
-		else
-			i /= 10;
-		j--;
-	}
-	printf("|\n");
+	printf("str           = |%s|\n", format);
+	printf("string left   = |%s|\n\n", str);
+	printf("result ft_prf = |%*c%s", form->width + form->precision, ' ', str), printf("|\n");
+	printf("result printf = |"), (i = printf(format, format)), printf("|\n");
+	printf("retour printf = |%d|\n", i);
+	ft_putendl("======== RESULTATS =========\n\n");
+
 
 }

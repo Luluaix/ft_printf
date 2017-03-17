@@ -6,14 +6,15 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/03/15 16:18:11 by philippedamoune  ###   ########.fr        #
+#    Updated: 2017/03/16 18:55:55 by pdamoune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	ft_printf
 SOURCES	=	ft_printf.c parsing.c color.c display_struct.c
 HEADERS	=	-I 1/$(PATHINC) -I $(PATHLIB)/$(PATHINC)
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror -g3
+NOFLAGS =	-Wno-format
 CC		=	clang
 PATHLIB	=	1/libft
 PATHSRC =	1/src
@@ -28,7 +29,13 @@ all: $(NAME)
 # 	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
 
 $(NAME): library
-		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS) -g
+		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS)
+		@./$(NAME)
+
+noflag: $(NOFLAGS)
+
+$(NOFLAGS): library
+		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS) $(NOFLAGS)
 		@./$(NAME)
 
 lib:
@@ -45,4 +52,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: lib, library, clean, fclean, re, all, $(NAME)
+.PHONY: lib, library, clean, fclean, re, all, $(NOFLAGS), $(NAME)

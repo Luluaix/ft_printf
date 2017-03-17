@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/15 17:45:13 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/16 19:23:49 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,11 @@ int		parsing(t_form *form, char **str)
 	int i;
 
 	i = 0;
-	// ft_putnbrel(form->type);
-	while (**str != '%' && **str)
-		(*str)++;
-	while (*((*str)++))
+	while (**str)
 	{
 		if (!ft_flags(form, str) && !ft_width(form, str))
 			return (1);
+		(*str)++;
 	}
 	return (0);
 }
