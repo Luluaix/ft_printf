@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/16 17:53:51 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 06:08:12 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void 	ft_puttype(t_form *form)
 		ft_putstr("\n");
 }
 
-void 	display_struct(t_form *form, char *str, char *format)
+void 	display_struct(t_form *form, t_struct *res, const char *format, va_list ap)
 {
 	int i;
-	int j;
+	// int j;
 
 	if (form->type == 'd')
 		form->width = 0;
@@ -84,10 +84,8 @@ void 	display_struct(t_form *form, char *str, char *format)
 	ft_putendl("======== STRUCTURE =========\n");
 	ft_putendl("======== RESULTATS =========");
 	printf("str           = |%s|\n", format);
-	printf("string left   = |%s|\n\n", str);
-	printf("result ft_prf = |%*c%s", form->width + form->precision, ' ', str), printf("|\n");
-	printf("result printf = |"), (i = printf(format, format)), printf("|\n");
-	printf("retour printf = |%d|\n", i);
+	printf("string left   = |%s|\n\n", res->buffer);
+	printf("result ft_prf = |%s", res->result), printf("|\n");
 	ft_putendl("======== RESULTATS =========\n\n");
 
 

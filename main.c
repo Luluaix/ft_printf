@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/16 21:34:09 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 06:12:59 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,15 @@ int	main()
 	int	i;
 
 	str = ft_strdup("%20.50sblabla");
-	// ft_printf("debut = %50s %50dfin", str);
-	printf("%o", 8);
+	ft_printf("debut|%p|fin", "bla");
+	printf("debut|%p|fin", "bla");
+	// ft_putendl(ft_ulltoa_base((U L L)&i, 16));
+	// ("debut|%p|fin\n", str);
+	// printf("debut|%p|fin", str);
+	// ft_putnbrel(str);
+	// printf("\n%p\n", str);
+	// ft_putnbrel(i);
+
 	// printf("\n============ %   d ============= \n", 15);
 	// printf("\n============ % - - - - d ============= \n", 15);
 	// printf("\n============ %0d ============= \n", 15);

@@ -6,7 +6,7 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/03/16 18:55:55 by pdamoune         ###   ########.fr        #
+#    Updated: 2017/03/17 02:54:57 by pdamoune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,12 @@ $(NOFLAGS): library
 		@./$(NAME)
 
 lib:
-		git submodule update --init 1/libft
+		rm -rf 1/libft
+		ln -s ~/Documents/42/projets_42/library 1/libft
+		#git submodule update --init 1/libft
+
+libp:
+		@git pull $(PATHLIB)
 
 library:
 		@make -C $(PATHLIB)

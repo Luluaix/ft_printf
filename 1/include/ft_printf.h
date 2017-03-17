@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/17 02:32:17 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 05:32:00 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,20 @@ typedef struct s_form	t_form;
 typedef struct s_struct	t_struct;
 typedef	union u_type	t_type;
 
-struct		s_form
-{
-	int		flags;
-	int		width;
-	int		precision;
-	int		modifier;
-	int		type;
-};
-
 struct		s_struct
 {
-	int		code;
+	int		len;
+	char	*buffer;
 	char	*result;
+};
+
+struct		s_form
+{
+	int			flags;
+	int			width;
+	int			precision;
+	int			modifier;
+	int			type;
 };
 
 union		u_type
@@ -45,7 +46,7 @@ union		u_type
 
 	int				d;		//	chiffre decimal
 	int			 	i;		//	chiffre decimal
-
+	int				p;
 
 	unsigned int	o;		//	chiffre octal
 	unsigned int	u;		//	chiffre decimal
@@ -68,7 +69,7 @@ union		u_type
 
 int		ft_printf(const char *format, ...);
 int		parsing(t_form *form, char **str);
-void 	display_struct(t_form *form, char *str, char *format);
+void 	display_struct(t_form *form, t_struct *res, const char *format, va_list ap);
 int		color(const char *str);
 
 #endif

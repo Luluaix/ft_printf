@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/16 19:23:49 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 06:26:36 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ int		parsing(t_form *form, char **str)
 			return (1);
 		(*str)++;
 	}
+
 	return (0);
 }
