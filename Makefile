@@ -6,14 +6,37 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/03/17 02:54:57 by pdamoune         ###   ########.fr        #
+#    Updated: 2017/03/20 11:56:03 by pdamoune         ###   ########.fr        #
 #                                                                              #
+# **************************************************************************** #
 # **************************************************************************** #
 
 NAME	=	ft_printf
-SOURCES	=	ft_printf.c parsing.c color.c display_struct.c
+SOURCES	=	ft_printf.c \
+			parsing.c \
+			conversion.c \
+			color.c \
+			display_struct.c \
+			ft_type_a.c \
+			ft_type_f.c \
+			ft_type_p.c \
+			ft_type_ue.c \
+			ft_type_ux.c \
+			ft_type_c.c \
+			ft_type_g.c \
+			ft_type_s.c \
+			ft_type_uf.c \
+			ft_type_x.c \
+			ft_type_d.c \
+			ft_type_i.c \
+			ft_type_u.c \
+			ft_type_ug.c \
+			ft_type_e.c \
+			ft_type_o.c \
+			ft_type_ua.c \
+			ft_type_us.c
 HEADERS	=	-I 1/$(PATHINC) -I $(PATHLIB)/$(PATHINC)
-CFLAGS	=	-Wall -Wextra -Werror -g3
+CFLAGS	=	-Wall -Wextra -Werror -w -g3
 NOFLAGS =	-Wno-format
 CC		=	clang
 PATHLIB	=	1/libft
@@ -29,7 +52,7 @@ all: $(NAME)
 # 	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
 
 $(NAME): library
-		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS)
+		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS) $(CFLAGS)
 		@./$(NAME)
 
 noflag: $(NOFLAGS)

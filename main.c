@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/17 06:12:59 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:20:00 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main()
 	char *str;
 	int	i;
 
-	str = ft_strdup("%20.50sblabla");
-	ft_printf("debut|%p|fin", "bla");
-	printf("debut|%p|fin", "bla");
+	str = ft_strdup("=====");
+	ft_printf("debut|%-20.50s|fin", str);
+	printf("debut|%-20.50d|fin", 123);
 	// ft_putendl(ft_ulltoa_base((U L L)&i, 16));
 	// ("debut|%p|fin\n", str);
 	// printf("debut|%p|fin", str);

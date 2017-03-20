@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/17 06:26:36 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:23:18 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,16 @@ int		ft_width(t_form *form, char **str)
 	return (1);
 }
 
-int		parsing(t_form *form, char **str)
+int		parsing(t_form *form)
 {
 	int i;
 
 	i = 0;
-	while (**str)
+	while (*form->buffer)
 	{
-		if (!ft_flags(form, str) && !ft_width(form, str))
+		if (!ft_flags(form, &form->buffer) && !ft_width(form, &form->buffer))
 			return (1);
-		(*str)++;
+		(form->buffer)++;
 	}
-
 	return (0);
 }
