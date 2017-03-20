@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/20 12:08:01 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/20 21:10:18 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 # include <stdarg.h>
 # define DEB ft_putendl("==== TEST ====");
 # define TEST_COMB(X)	1 << X
-# define ABS(X)			X < 0 ? -X : X;
+# define FLAG_H			form->flags & 1 << 0
+# define FLAG_P			form->flags & 1 << 1
+# define FLAG_S			form->flags & 1 << 2
+# define FLAG_M			form->flags & 1 << 3
+# define FLAG_Z			form->flags & 1 << 4
 
 typedef struct s_form	t_form;
 typedef struct s_fonct	t_fonct;
@@ -42,7 +46,7 @@ struct		s_fonct
 
 union		u_data
 {
-	unsigned char	c;		//	caractere
+	unsigned int	c;		//	caractere
 	char			*s;		//	chaine de caracteres
 	wchar_t			*S;		//	equivalent a ls
 
@@ -72,7 +76,8 @@ int		parsing(t_form *form);
 int		conversion(t_form *form, va_list ap);
 int		color(const char *str);
 void 	display_struct(t_form *form, const char *format, va_list ap);
-
+void 	ft_set_s(t_form *form, char *str);
+char	*ft_set_flags(t_form *form, char *str);
 int		ft_type_c(t_form *form, va_list ap);
 int		ft_type_s(t_form *form, va_list ap);
 int		ft_type_us(t_form *form, va_list ap);

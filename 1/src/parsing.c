@@ -6,13 +6,13 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/20 13:23:18 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/20 19:36:46 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int		g_flags[6] = {'#', '+', '-', ' ', '0'};
+int		g_flags[6] = {'#', '+', ' ', '-', '0'};
 char	*g_modifier[7] = {"ll", "hh", "h", "l", "j", "z", 0};
 char	g_type[16] = {"diouxXfeEgGcsp%"};
 

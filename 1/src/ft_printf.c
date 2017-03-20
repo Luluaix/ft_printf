@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/20 12:05:24 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:40:43 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ t_fonct		g_conv[] =
 
 int		ft_set(t_form *form, int *i)
 {
+	int		old_len;
+
 	if (!(*i = (int)ft_strchr(form->buffer, '%')))
 		return (0);
 	*i -= (int)form->buffer;
 	form->buffer[*i] = 0;
-	form->result = ft_strjoin(form->result, form->buffer);
+	old_len = form->len;
+	form->len += *i;
+	form->result = ft_memrealloc(form->result, old_len, form->len);
+	ft_strcpy(&form->result[old_len], form->buffer);
 	ft_strcpy(form->buffer, &form->buffer[*i + 1]);
 	ft_bzero(form, sizeof(t_form) - 24);
 	return (*i);

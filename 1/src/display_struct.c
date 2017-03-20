@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/20 13:23:01 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:46:19 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void 	display_struct(t_form *form, const char *format, va_list ap)
 	ft_putstr("form->type      = "), ft_puttype(form);
 	ft_putendl("======== STRUCTURE =========\n");
 	ft_putendl("======== RESULTATS =========");
+	ft_putstr("form->len     = "), ft_putnbrel(form->len);
+	ft_putstr("strlen(result)= "), ft_putnbrel(ft_strlen(form->result));
 	printf("str           = |%s|\n", format);
 	printf("string left   = |%s|\n\n", form->buffer);
 	printf("result ft_prf = |%s", form->result), printf("|\n");
