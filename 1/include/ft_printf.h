@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/20 21:10:18 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/21 15:41:34 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		parsing(t_form *form);
 int		conversion(t_form *form, va_list ap);
 int		color(const char *str);
 void 	display_struct(t_form *form, const char *format, va_list ap);
-void 	ft_set_s(t_form *form, char *str);
+void 	ft_set_string(t_form *form, char *str, int type);
 char	*ft_set_flags(t_form *form, char *str);
 int		ft_type_c(t_form *form, va_list ap);
 int		ft_type_s(t_form *form, va_list ap);

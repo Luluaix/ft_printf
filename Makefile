@@ -6,7 +6,7 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/03/20 11:56:03 by pdamoune         ###   ########.fr        #
+#    Updated: 2017/03/21 15:48:21 by pdamoune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 # **************************************************************************** #
@@ -17,6 +17,7 @@ SOURCES	=	ft_printf.c \
 			conversion.c \
 			color.c \
 			display_struct.c \
+			ft_set_string.c \
 			ft_type_a.c \
 			ft_type_f.c \
 			ft_type_p.c \
