@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/17 05:32:00 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:15:17 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@ typedef struct s_form	t_form;
 typedef struct s_struct	t_struct;
 typedef	union u_type	t_type;
 
-struct		s_struct
-{
-	int		len;
-	char	*buffer;
-	char	*result;
-};
-
 struct		s_form
 {
 	int			flags;
@@ -36,6 +29,9 @@ struct		s_form
 	int			precision;
 	int			modifier;
 	int			type;
+	int			len;
+	char		*buffer;
+	char		*result;
 };
 
 union		u_type
@@ -68,8 +64,8 @@ union		u_type
 };
 
 int		ft_printf(const char *format, ...);
-int		parsing(t_form *form, char **str);
-void 	display_struct(t_form *form, t_struct *res, const char *format, va_list ap);
+int		parsing(t_form *form);
+void 	display_struct(t_form *form, const char *format, va_list ap);
 int		color(const char *str);
 
 #endif

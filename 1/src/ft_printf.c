@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/17 06:26:31 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:22:50 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,40 +20,49 @@
 
 // int	ft_set_str(t_form *form, char *buffer)
 
-void	ft_type_p(t_struct *result, t_form *form, va_list ap)
+void	ft_type_p(t_form *form, va_list ap)
 {
-	result->result = ft_strjoin(result->result, "0x");
-	result->result = ft_strjoin(result->result,
+	form->result = ft_strjoin(form->result, "0x");
+	form->result = ft_strjoin(form->result,
 		ft_ulltoa_base((U L)va_arg(ap, void*), 16));
 }
 
-int		ft_conv_type(t_struct *result, t_form *form, va_list ap)
+int		ft_conv_type(t_form *form, va_list ap)
 {
 	if (form->type == 'p')
-		ft_type_p(result, form, ap);
+		ft_type_p(form, ap);
 	return (0);
 }
 
-int		ft_re_set(t_struct *result, t_form *form, int *i)
+int		ft_re_set(t_form *form, int *i)
 {
-	if (!(*i = (int)ft_strchr(result->buffer, '%')))
+	if (!(*i = (int)ft_strchr(form->buffer, '%')))
 		return (0);
-	*i -= (int)result->buffer;
-	result->buffer[*i - 1] = 0;
-	result->result = ft_strjoin(result->result, result->buffer);
-	ft_strcpy(result->buffer, &result->buffer[*i + 1]);
-	ft_bzero(form, sizeof(t_struct));
+	*i -= (int)form->buffer;
+	form->buffer[*i - 1] = 0;
+	form->result = ft_strjoin(form->result, form->buffer);
+	ft_strcpy(form->buffer, &form->buffer[*i + 1]);
+	ft_bzero(form, sizeof(t_form) - (2 * sizeof(form->buffer) + 4));
 	return (1);
 }
 
-int 	ft_set(t_form *form, t_struct *result, const char *format)
+int 	ft_set(t_form *form, const char *format)
 {
 	int		i;
 
 	i = ft_strchr(format, '%') - format;
-	result->buffer = ft_strdup(&format[i + 1]);
-	result->result = ft_strsub(format, 0, i);
-	ft_bzero(form, sizeof(t_form));
+	form->buffer = ft_strdup(&format[i + 1]);
+	form->result = ft_strsub(format, 0, i);
+	ft_putnbrel(sizeof(form->flags));
+	ft_putnbrel(sizeof(form->width));
+	ft_putnbrel(sizeof(form->precision));
+	ft_putnbrel(sizeof(form->modifier));
+	ft_putnbrel(sizeof(form->type));
+	ft_putnbrel(sizeof(form->len));
+	ft_putnbrel(sizeof(form->buffer));
+	ft_putnbrel(sizeof(form->result));
+	ft_putnbrel(sizeof(t_form) - (2 * sizeof(form->buffer) + 4));
+	ft_bzero(form, sizeof(t_form) - (2 * sizeof(form->buffer) + 4));
 	return (i);
 }
 
@@ -61,21 +70,20 @@ int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	t_form		form;
-	t_struct	result;
 	int			ret;
 	int			i;
 
 	ret = 1;
-	i = ft_set(&form, &result, format);
+	i = ft_set(&form, format);
 	va_start(ap, format);
-	while ((ret = parsing(&form, &result.buffer)) > 0)
+	while ((ret = parsing(&form)) > 0)
 	{
-		ft_conv_type(&result, &form, ap);
-		//display_struct(&form, &result, format, ap);
-		if (!ft_re_set(&result, &form, &i))
+		ft_conv_type(&form, ap);
+		display_struct(&form, format, ap);
+		if (!ft_re_set(&form, &i))
 			break;
 	}
-	result.result = ft_strjoin(result.result, result.buffer);
-	ft_putendl(result.result);
+	form.result = ft_strjoin(form.result, form.buffer);
+	ft_putendl(form.result);
 	return (0);
 }

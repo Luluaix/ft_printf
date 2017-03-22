@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/17 06:08:12 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:07:45 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,8 @@ void 	ft_puttype(t_form *form)
 		ft_putstr("\n");
 }
 
-void 	display_struct(t_form *form, t_struct *res, const char *format, va_list ap)
+void 	display_struct(t_form *form,const char *format, va_list ap)
 {
-	int i;
 	// int j;
 
 	if (form->type == 'd')
@@ -84,8 +83,8 @@ void 	display_struct(t_form *form, t_struct *res, const char *format, va_list ap
 	ft_putendl("======== STRUCTURE =========\n");
 	ft_putendl("======== RESULTATS =========");
 	printf("str           = |%s|\n", format);
-	printf("string left   = |%s|\n\n", res->buffer);
-	printf("result ft_prf = |%s", res->result), printf("|\n");
+	printf("string left   = |%s|\n\n", form->buffer);
+	printf("result ft_prf = |%s", form->result), printf("|\n");
 	ft_putendl("======== RESULTATS =========\n\n");
 
 
