@@ -6,13 +6,13 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/17 16:05:14 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/03/20 19:36:46 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int		g_flags[6] = {'#', '+', '-', ' ', '0'};
+int		g_flags[6] = {'#', '+', ' ', '-', '0'};
 char	*g_modifier[7] = {"ll", "hh", "h", "l", "j", "z", 0};
 char	g_type[16] = {"diouxXfeEgGcsp%"};
 
@@ -102,8 +102,7 @@ int		parsing(t_form *form)
 	{
 		if (!ft_flags(form, &form->buffer) && !ft_width(form, &form->buffer))
 			return (1);
-		(*form->buffer)++;
+		(form->buffer)++;
 	}
-
 	return (0);
 }

@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion.c                                       :+:      :+:    :+:   */
+/*   ft_type_d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/16 21:27:42 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/21 15:41:04 by pdamoune         ###   ########.fr       */
+/*   Created: 2017/03/20 11:51:15 by pdamoune          #+#    #+#             */
+/*   Updated: 2017/03/21 21:35:14 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include	"../include/ft_printf.h"
 
-int		conversion(t_form *form, va_list ap)
+int		ft_type_d(t_form *form, va_list ap)
 {
-	int	i;
+	t_data	data;
 
-	i = 0;
-	ft_putendl("======= CONVERSION ========");
-	while (form->type != g_conv[i].id)
-	 	i++;
-	(g_conv[i].fonction)(form, ap);
-	ft_putendl("======= CONVERSION ========");
+	data.d = va_arg(ap, int);
+	ft_set_string(form, ft_lltoa_base(data.d, 10), 'd');
 	return (0);
 }
