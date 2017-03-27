@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/23 06:42:14 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 09:47:24 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 
 int	main()
 {
-	char 	*str;
+	char 	*ptr;
 	// char	c;
 	int		i;
 
-	str = ft_strdup("=====");
+	ptr = ft_strdup("=====");
 	// ft_putnbrel(printf("coucoucoucou\n"));
-	ft_printf("debut|%10c|milieu|%+ 10s|milieu|%10p|fin", '+', "===", 123);
-	printf("debut|%- 10c|-1-|%-+ 10s|-2-|%- 10p|-3-|%- 10d", '+', "===", 123, 1);
+	// ft_printf("debut|%10c|milieu|%+ 10s|milieu|%10p|fin", '+', "===", 123);
+	ft_putnbrel(ft_printf("debut|%c|-1-|%-+ 10s|-2-|%- 10p|-3-|\n", 'c', "string", &ptr));
+	ft_putnbrel(printf("debut|%c|-1-|%-+ 10s|-2-|%- 10p|-3-|\n", 'c', "string", &ptr));
 
 	// ft_putendl(ft_ulltoa_base((U L L)&i, 16));
 	// ("debut|%p|fin\n", str);
@@ -41,6 +42,6 @@ int	main()
 	// ft_printf(str);
 	i = 21;
 	// ft_putnbr(printf("bla = %.10d", i));
-	ft_strdel(&str);
+	ft_strdel(&ptr);
 	return (0);
 }

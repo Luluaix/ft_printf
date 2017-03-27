@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 15:40:41 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/23 07:04:17 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 09:43:11 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@ void	ft_check_width(t_arg *arg, char **str)
 	// return (ft_strdup(tmp));
 }
 
-void 	ft_set_string(t_arg *arg, char **str, int type)
+int 	prf_set_string(t_arg *arg, char **str, int type)
 {
 	// free(*str);
 	ft_check_width(arg, str);
-	ft_putendl(*str);
+	return (ft_strlen(*str));
+	// ft_putendl(*str);
 	// arg->flags ? str = ft_check_flags(arg, str, type) : str;
 
 }

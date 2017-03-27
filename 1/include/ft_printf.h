@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/23 06:34:04 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 09:43:37 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include "../libft/include/libft.h"
 # include <stdarg.h>
 # define DEB ft_putendl("==== TEST ====");
+# define RES ft_putendl(form->result);
+# define BUF ft_putendl(form->buffer);
+# define TMP ft_putendl(tmp);
 # define TEST_COMB(X)	1 << X
 # define FLAG_H			arg->flags & 1 << 0
 # define FLAG_P			arg->flags & 1 << 1
@@ -29,10 +32,10 @@ typedef	union u_data	t_data;
 
 struct		s_form
 {
+	char		result[1024];
 	char		*buffer;
-	char		*result;
-	int			r_len;
-	int			b_len;
+	int			len_result;
+	int			len_buffer;
 };
 
 struct		s_arg
@@ -78,30 +81,31 @@ union		u_data
 extern t_fonct	g_conv[];
 
 int		ft_printf(const char *format, ...);
-int		parsing(t_arg *arg, char **buffer);
-int		conversion(t_form *form, t_arg *arg, va_list ap);
+int		prf_parsing(t_arg *arg, char **buffer);
+int		prf_conversion(t_form *form, t_arg *arg, va_list ap);
 int		color(const char *str);
-void 	display_struct(t_form *form, t_arg *arg, const char *format, va_list ap);
-void 	ft_set_string(t_arg *arg, char **str, int type);
+int 	prf_set_string(t_arg *arg, char **str, int type);
+void 	prf_join_buffer(char *result, char *buf, int *len_result, int *len_buffer);
+void 	prf_display_struct(t_form *form, t_arg *arg, const char *format, va_list ap);
 // char	*ft_set_flags(t_form *form, char *str);
-char	*ft_type_c(t_arg *arg, va_list ap);
-char	*ft_type_s(t_arg *arg, va_list ap);
-// char	*ft_type_us(t_arg *arg, va_list ap);
-// char	*ft_type_d(t_arg *arg, va_list ap);
-// char	*ft_type_i(t_arg *arg, va_list ap);
-char	*ft_type_p(t_arg *arg, va_list ap);
-// char	*ft_type_o(t_arg *arg, va_list ap);
-// char	*ft_type_u(t_arg *arg, va_list ap);
-// char	*ft_type_x(t_arg *arg, va_list ap);
-// char	*ft_type_ux(t_arg *arg, va_list ap);
-// char	*ft_type_f(t_arg *arg, va_list ap);
-// char	*ft_type_uf(t_arg *arg, va_list ap);
-// char	*ft_type_e(t_arg *arg, va_list ap);
-// char	*ft_type_ue(t_arg *arg, va_list ap);
-// char	*ft_type_g(t_arg *arg, va_list ap);
-// char	*ft_type_ug(t_arg *arg, va_list ap);
-// char	*ft_type_a(t_arg *arg, va_list ap);
-// char	*ft_type_ua(t_arg *arg, va_list ap);
+char	*ft_type_c(t_arg *arg, va_list ap, int *len_buffer);
+char	*ft_type_s(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_us(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_d(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_i(t_arg *arg, va_list ap, int *len_buffer);
+char	*ft_type_p(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_o(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_u(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_x(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_ux(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_f(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_uf(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_e(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_ue(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_g(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_ug(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_a(t_arg *arg, va_list ap, int *len_buffer);
+// char	*ft_type_ua(t_arg *arg, va_list ap, int *len_buffer);
 
 
 

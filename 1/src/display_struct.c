@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/23 06:11:10 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 08:05:11 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,20 @@ void 	ft_puttype(t_arg *arg)
 		ft_putstr("\n");
 }
 
-void 	display_struct(t_form *form, t_arg *arg, const char *format, va_list ap)
+void 	prf_display_struct(t_form *form, t_arg *arg, const char *format, va_list ap)
 {
 	// if (arg->type == 'd')
 	// 	form->width = 0;
 	// if (form->type == 's')
 	// 	form->precision = 0;
-	ft_putendl("======== STRUCTURE =========");
+	ft_putendl("\n============================== STRUCTURE ==============================\n");
+	printf("form->result = '%s'\nform->buffer = '%s'\n\n", form->result, form->buffer);
 	ft_putstr("arg->flags     = "), ft_putflags(arg);
 	ft_putstr("arg->width     = "), ft_putnbrel(arg->width);
 	ft_putstr("arg->precision = "), ft_putnbrel(arg->precision);
 	ft_putstr("arg->modifier  = "), ft_putmodifier(arg);
 	ft_putstr("arg->type      = "), ft_puttype(arg);
-	ft_putendl("======== STRUCTURE =========\n");
+	ft_putendl("\n=======================================================================\n");
 	// ft_putendl("======== RESULTATS =========");
 	// ft_putstr("form->len     = "), ft_putnbrel(form->r_len);
 	// ft_putstr("strlen(result)= "), ft_putnbrel(ft_strlen(form->result));

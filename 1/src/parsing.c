@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:12 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/23 06:18:22 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 07:56:47 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		ft_width(t_arg *arg, char **str)
 	return (1);
 }
 
-int		parsing(t_arg *arg, char **buffer)
+int		prf_parsing(t_arg *arg, char **buffer)
 {
 	int i;
 
