@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_d.c                                        :+:      :+:    :+:   */
+/*   prf_lltoa_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/20 11:51:15 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/27 20:02:54 by pdamoune         ###   ########.fr       */
+/*   Created: 2017/03/27 10:30:58 by pdamoune          #+#    #+#             */
+/*   Updated: 2017/03/27 12:24:37 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../include/ft_printf.h"
+#include "../include/ft_printf.h"
 
-char	*ft_type_d(t_arg *arg, va_list ap, int *len_buffer)
+void	prf_lltoa_base(char *result, long long n, unsigned int base)
 {
-	t_data	data;
-	char	*str;
+	int			len;
+	int			mod;
 
-	data.d = va_arg(ap, int);
-	str = ft_memalloc(12);
-	prf_lltoa_base(str, data.d, 10);
-	*len_buffer = prf_set_unsigned(arg, &str, 's');
-	return (str);
+	len = 0;
+	result[len] = '0';
+	while (n > 0 || n < 0)
+	{
+		mod = ABS(n % base);
+		result[len] = mod + '0';
+		if (base >= 10)
+			if (!ft_isdigit(result[len]))
+				result[len] += 39;
+		if (n / base == 0 && n < 0)
+			result[len + 1] = '-';
+		n /= base;
+		len++;
+	}
+	ft_strrev(result);
 }

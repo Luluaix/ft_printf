@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/03/27 12:44:31 by pdamoune         ###   ########.fr        #
+#    Created: 2017/03/27 12:43:34 by pdamoune          #+#    #+#              #
+#    Updated: 2017/03/27 12:53:27 by pdamoune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,6 @@ NAME	=	libftprintf.a
 SOURCES	=	ft_printf.c \
 			parsing.c \
 			conversion.c \
-			color.c \
-			display_struct.c \
 			ft_set_string.c \
 			prf_set_unsigned.c \
 			ft_type_p.c \
@@ -27,42 +25,23 @@ SOURCES	=	ft_printf.c \
 			ft_type_ux.c \
 			ft_type_o.c \
 			prf_lltoa_base.c
-HEADERS	=	-I 1/$(PATHINC) -I $(PATHLIB)/$(PATHINC)
-CFLAGS	=	-Wall -Wextra -Werror -w -g3
-NOFLAGS =	-Wno-format
+HEADERS	=	libft.h ft_printf.h
+CFLAGS	=	-Wall -Wextra -Werror
 CC		=	clang
-PATHLIB	=	1/libft
-PATHSRC =	1/src
+PATHSRC =	src
 PATHINC	=	include
-PATHOBJ	=	1/obj
-OBJETS	=	$(patsubst %.c,$(PATHSRC)/%.c,$(SOURCES))
+PATHOBJ	=	obj
+OBJETS	=	$(patsubst %.c,$(PATHOBJ)/%.o,$(SOURCES))
 
 all: $(NAME)
 
-# $(PATHOBJ)/%.o: $(PATHSRC)/%.c
-# 	@mkdir -p $(PATHOBJ)
-# 	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
+$(PATHOBJ)/%.o: $(PATHSRC)/%.c
+	@mkdir -p $(PATHOBJ)
+	$(CC) $(CFLAGS) -I $(PATHINC) -c $< -o $@
 
-$(NAME): library
-		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS) $(CFLAGS)
-		@./$(NAME)
-
-noflag: $(NOFLAGS)
-
-$(NOFLAGS): library
-		@$(CC) -o $(NAME) main.c $(OBJETS) $(PATHLIB)/libft.a $(HEADERS) $(NOFLAGS)
-		@./$(NAME)
-
-lib:
-		rm -rf 1/libft
-		ln -s ~/Documents/42/projets_42/library 1/libft
-		#git submodule update --init 1/libft
-
-libp:
-		@git pull $(PATHLIB)
-
-library:
-		@make -C $(PATHLIB)
+$(NAME): $(OBJETS)
+		@ar rc $(NAME) libft/obj/* $(OBJETS)
+		@ranlib $(NAME)
 
 clean:
 		@rm -rf $(PATHOBJ)
@@ -72,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: lib, library, clean, fclean, re, all, $(NOFLAGS), $(NAME)
+.PHONY: clean, fclean, re, all

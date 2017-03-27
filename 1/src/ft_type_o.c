@@ -6,13 +6,22 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 11:52:15 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/20 11:52:20 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 11:50:14 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/ft_printf.h"
 
-int		ft_type_o(t_form *form, va_list ap)
+char	*ft_type_o(t_arg *arg, va_list ap, int *len_buffer)
 {
-	return (0);
+	t_data	data;
+	char	*str;
+	int		i;
+
+	i = -1;
+	data.ux = va_arg(ap, unsigned int);
+	str = ft_memalloc(11);
+	prf_lltoa_base(str, (U) data.u, 8);
+	*len_buffer = prf_set_unsigned(arg, &str, 's');
+	return (str);
 }

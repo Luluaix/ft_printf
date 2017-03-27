@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/27 09:22:52 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:03:14 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void 	prf_join_buffer(char *result, char *buf, int *len_result, int *len_buffer)
 	int				j;
 
 	j = 0;
+
 	while (j < *len_buffer && i < 1024)
 	{
 		// write(1, result, i);
@@ -44,8 +45,9 @@ int		prf_search_conv(t_form *form)
 	form->len_buffer -= (int)form->buffer;
 	form->buffer[form->len_buffer] = 0;
 	prf_join_buffer(form->result, form->buffer, &(form->len_result), &(form->len_buffer));
-
 	form->buffer = &form->buffer[form->len_buffer + 1];
+	if (!form->len_buffer)
+		return (1);
 	return (form->len_buffer);
 }
 
@@ -79,5 +81,6 @@ int	ft_printf(const char *format, ...)
 	form.len_buffer = ft_strlen(form.buffer);
 	prf_join_buffer(form.result, form.buffer, &(form.len_result), &(form.len_buffer));
 	write(1, form.result, form.len_result);
+	ft_strdel(&tmp);
 	return (form.len_result);
 }
