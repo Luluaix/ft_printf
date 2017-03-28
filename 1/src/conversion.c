@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 21:27:42 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/27 19:14:45 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/28 19:54:14 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_fonct		g_conv[] =
 {
+	{'%', &ft_percent},
 	{'c', &ft_type_c},
 	{'s', &ft_type_s},
 	// {'S', &ft_type_us},
@@ -37,28 +38,16 @@ t_fonct		g_conv[] =
 int		prf_conversion(t_form *form, t_arg *arg, va_list ap)
 {
 	char *tmp;
-	// int old_len;
 	int	i;
 
 	i = 0;
-	// ft_putendl("======= CONVERSION ========");
+	ft_putendl("======= CONVERSION ========");
 	while (arg->type != g_conv[i].id)
 	 	i++;
 	tmp = (g_conv[i].fonction)(arg, ap, &(form->len_buffer));
-	// DEB
-	// BUF
-	// RES
-	// ft_putendl(tmp);
-	// LB
-	// LR
-	// DEB
-	ft_putendl(tmp);
+
 	prf_join_buffer(form->result, tmp, &(form->len_result), &(form->len_buffer));
 	ft_strdel(&tmp);
-	// old_len = form->r_len;
-	// form->r_len += ft_strlen(str);
-	// form->result = ft_memrealloc(form->result, old_len, form->r_len + 1);
-	// ft_strcpy(&form->result[old_len], str);
-	// ft_putendl("======= CONVERSION ========");
+	ft_putendl("======= CONVERSION ========");
 	return (0);
 }

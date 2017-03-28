@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/27 15:03:14 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/28 20:04:06 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	ft_printf(const char *format, ...)
 	{
 		prf_conversion(&form, &arg, ap);
 		prf_display_struct(&form, &arg, format, ap);
+		ft_bzero(&arg, sizeof(t_arg));
 		if (!prf_search_conv(&form))
 			break;
 	}

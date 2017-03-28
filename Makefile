@@ -6,7 +6,7 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/03/27 12:44:31 by pdamoune         ###   ########.fr        #
+#    Updated: 2017/03/28 19:54:48 by pdamoune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SOURCES	=	ft_printf.c \
 			display_struct.c \
 			ft_set_string.c \
 			prf_set_unsigned.c \
+			ft_percent.c \
 			ft_type_p.c \
 			ft_type_c.c \
 			ft_type_s.c \

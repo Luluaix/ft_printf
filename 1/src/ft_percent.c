@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_c.c                                        :+:      :+:    :+:   */
+/*   ft_percent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/20 11:51:04 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/28 20:44:29 by pdamoune         ###   ########.fr       */
+/*   Created: 2017/03/28 19:47:15 by pdamoune          #+#    #+#             */
+/*   Updated: 2017/03/28 19:56:25 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/ft_printf.h"
 
-char	*ft_type_c(t_arg *arg, va_list ap, int *len_buffer)
+char	*ft_percent(t_arg *arg, va_list ap, int *len_buffer)
 {
 	t_data	data;
 	char	*str;
 
-	// ft_set_flags(arg, type);
-	data.c = va_arg(ap, unsigned int);
+	data.prc = '%';
 	str = ft_memalloc(2);
-	str[0] = data.c;
+	str[0] = data.prc;
 	str[1] = 0;
 	if (!(*len_buffer = prf_set_string(arg, &str, 's')))
 		*len_buffer = 1;

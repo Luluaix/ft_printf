@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/27 08:05:11 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/28 19:47:03 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,16 @@ void 	prf_display_struct(t_form *form, t_arg *arg, const char *format, va_list a
 	// if (form->type == 's')
 	// 	form->precision = 0;
 	ft_putendl("\n============================== STRUCTURE ==============================\n");
-	printf("form->result = '%s'\nform->buffer = '%s'\n\n", form->result, form->buffer);
+	write(1, "Resultat           = '", 22);
+	write(1, form->result, form->len_result);
+	printf("%s'\n", form->buffer);
+	printf("Len Resultat       = '%d'\n\n", form->len_result + (int)ft_strlen(form->buffer));
+	printf("form->result       = '%s'\nform->len_result   = '%d'\n", form->result, form->len_result);
+	printf("form->buffer       = '%s'\nform->len_buffer   = '%d'\n\n", form->buffer, form->len_buffer);
 	ft_putstr("arg->flags     = "), ft_putflags(arg);
 	ft_putstr("arg->width     = "), ft_putnbrel(arg->width);
 	ft_putstr("arg->precision = "), ft_putnbrel(arg->precision);
 	ft_putstr("arg->modifier  = "), ft_putmodifier(arg);
 	ft_putstr("arg->type      = "), ft_puttype(arg);
 	ft_putendl("\n=======================================================================\n");
-	// ft_putendl("======== RESULTATS =========");
-	// ft_putstr("form->len     = "), ft_putnbrel(form->r_len);
-	// ft_putstr("strlen(result)= "), ft_putnbrel(ft_strlen(form->result));
-	// printf("str           = |%s|\n", format);
-	// printf("string left   = |%s|\n\n", form->buffer);
-	// printf("result ft_prf = |%s", form->result), printf("|\n");
-	// ft_putendl("======== RESULTATS =========\n\n");
-
-
 }

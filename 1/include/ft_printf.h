@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/28 07:45:25 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/28 20:44:16 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # define FLAG_S			arg->flags & 1 << 2
 # define FLAG_M			arg->flags & 1 << 3
 # define FLAG_Z			arg->flags & 1 << 4
+# define TWO_FLAG		0b11000
+# define THREE_FLAG		0b11001
+# define FOUR_FLAG		0b11110
+# define FIVE_FLAG		0b11111
 
 typedef struct s_form	t_form;
 typedef struct s_arg	t_arg;
@@ -57,6 +61,7 @@ struct		s_fonct
 
 union		u_data
 {
+	char			prc;	// caractere %
 	unsigned int	c;		//	caractere
 	char			*s;		//	chaine de caracteres
 	wchar_t			*us;		//	equivalent a ls
@@ -84,6 +89,8 @@ extern t_fonct	g_conv[];
 
 int		ft_printf(const char *format, ...);
 int		prf_parsing(t_arg *arg, char **buffer);
+// void 	ft_set_flags(t_arg *arg, char type);
+
 int		prf_conversion(t_form *form, t_arg *arg, va_list ap);
 // int		color(const char *str);
 int 	prf_set_string(t_arg *arg, char **str, int type);
@@ -93,6 +100,7 @@ void 	prf_display_struct(t_form *form, t_arg *arg, const char *format, va_list a
 
 void	prf_lltoa_base(char *result, long long n, unsigned int base);
 // char	*ft_set_flags(t_form *form, char *str);
+char	*ft_percent(t_arg *arg, va_list ap, int *len_buffer);
 char	*ft_type_c(t_arg *arg, va_list ap, int *len_buffer);
 char	*ft_type_s(t_arg *arg, va_list ap, int *len_buffer);
 // char	*ft_type_us(t_arg *arg, va_list ap, int *len_buffer);
