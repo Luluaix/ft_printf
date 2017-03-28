@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/27 20:02:04 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/28 07:45:25 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ union		u_data
 	unsigned int	c;		//	caractere
 	char			*s;		//	chaine de caracteres
 	wchar_t			*us;		//	equivalent a ls
+	void			*p;
 
 	int				d;		//	chiffre decimal
 	int			 	i;		//	chiffre decimal
-	void			*p;
 
 	unsigned int	o;		//	chiffre octal
 	unsigned int	u;		//	chiffre decimal
