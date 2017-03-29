@@ -6,14 +6,14 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:48:02 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/28 19:47:03 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/29 11:29:43 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 #include <stdio.h>
 
-int		g_flag[6] = {'#', '+', '-', ' ', '0'};
+int		g_flag[6] = {'#', '+', ' ', '-', '0'};
 char	*g_modifiers[7] = {"ll", "hh", "h", "l", "j", "z", 0};
 
 void 	ft_putflags(t_arg *arg)

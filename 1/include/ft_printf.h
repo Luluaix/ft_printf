@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/28 20:44:16 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/29 11:26:35 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 # define FT_PRINTF_H
 # include "../libft/include/libft.h"
 # include <stdarg.h>
+# include <limits.h>
 # define DEB ft_putendl("==== TEST ====");
 # define RES ft_putendl(form->result);
 # define BUF ft_putendl(form->buffer);
 # define LB ft_putnbrel(form->len_buffer);
 # define LR ft_putnbrel(form->len_result);
 # define TMP ft_putendl(tmp);
-# define TEST_COMB(X)	1 << X
-# define FLAG_H			arg->flags & 1 << 0
-# define FLAG_P			arg->flags & 1 << 1
-# define FLAG_S			arg->flags & 1 << 2
-# define FLAG_M			arg->flags & 1 << 3
-# define FLAG_Z			arg->flags & 1 << 4
+# define TEST_COMB(X)	(1 << X)
+# define BUF_LEN		form->len_buffer
+# define WIDTH			arg->width
+# define FLAG			arg->flags
+# define FLAG_H			arg->flags & 0b00001
+# define FLAG_P			arg->flags & 0b00010
+# define FLAG_S			arg->flags & 0b00100
+# define FLAG_M			arg->flags & 0b01000
+# define FLAG_Z			arg->flags & 0b10000
+# define MOD			arg->modifier
+# define MOD_HH			arg->modifier & 0b000001
+# define MOD_H			arg->modifier & 0b000010
+# define MOD_L			arg->modifier & 0b000100
+# define MOD_LL			arg->modifier & 0b001000
+# define MOD_J			arg->modifier & 0b010000
+# define MOD_Z			arg->modifier & 0b100000
 # define TWO_FLAG		0b11000
 # define THREE_FLAG		0b11001
 # define FOUR_FLAG		0b11110

@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 21:27:42 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/28 19:54:14 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/29 09:23:21 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ t_fonct		g_conv[] =
 	{'c', &ft_type_c},
 	{'s', &ft_type_s},
 	// {'S', &ft_type_us},
-	{'d', &ft_type_d},
-	{'i', &ft_type_d},
+	// {'d', &ft_type_d},
+	// {'i', &ft_type_d},
 	{'p', &ft_type_p},
-	{'o', &ft_type_o},
-	{'u', &ft_type_u},
-	{'x', &ft_type_x},
-	{'X', &ft_type_ux},
+	// {'o', &ft_type_o},
+	// {'u', &ft_type_u},
+	// {'x', &ft_type_x},
+	// {'X', &ft_type_ux},
 	// {'f', &ft_type_f},
 	// {'F', &ft_type_uf},
 	// {'e', &ft_type_e},
@@ -33,7 +33,10 @@ t_fonct		g_conv[] =
 	// {'G', &ft_type_ug},
 	// {'a', &ft_type_a},
 	// {'A', &ft_type_ua},
+	// {0, &ft_type_nul},
 };
+
+
 
 int		prf_conversion(t_form *form, t_arg *arg, va_list ap)
 {
@@ -44,6 +47,7 @@ int		prf_conversion(t_form *form, t_arg *arg, va_list ap)
 	ft_putendl("======= CONVERSION ========");
 	while (arg->type != g_conv[i].id)
 	 	i++;
+
 	tmp = (g_conv[i].fonction)(arg, ap, &(form->len_buffer));
 
 	prf_join_buffer(form->result, tmp, &(form->len_result), &(form->len_buffer));
