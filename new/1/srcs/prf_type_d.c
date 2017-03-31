@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prf_type_s.c                                       :+:      :+:    :+:   */
+/*   prf_type_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
+/*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 15:00:32 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/31 13:46:59 by philippedamoune  ###   ########.fr       */
+/*   Created: 2017/03/31 12:27:45 by philippe          #+#    #+#             */
+/*   Updated: 2017/03/31 13:47:46 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../includes/ft_printf.h"
 
-void	prf_type_s(t_arg *arg, va_list ap)
+void	prf_type_d(t_arg *arg, va_list ap)
 {
 	t_data	data;
+	char	str[12];
+	char	*s;
 	int 	len;
 
-	data.s = va_arg(ap, char *);
-	len = ft_strlen(data.s);
-	if (WIDTH <= len)
-	{
-		prf_fill_data(arg, &data.s);
-		return ;
-	}
-	FLAG &= TWO_FLAG;
-	FLAG_M ? FLAG &= FLAG_M : 0;
-	prf_set_padding(&data.s, arg, len);
-	prf_fill_data(arg, &data.s);
+	ft_bzero(str, 12);
+	s = str;
+	data.d = va_arg(ap, int);
+	prf_lltoa_base(str, data.d, 10);
+	// ft_putendl(str);
+	len = ft_strlen(str);
+	FLAG &= FOUR_FLAG;
+	FLAG |= SIGN_FLAG;
+	prf_set_padding(&s, arg, len);
+	prf_fill_data(arg, &s);
 
 	// if (!(*len_buffer = prf_set_string(arg, &str, 's')))
 	// 	*len_buffer = 1;

@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prf_fill_data.c                                    :+:      :+:    :+:   */
+/*   prf_lltoa_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 16:24:04 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/03/31 14:01:55 by philippedamoune  ###   ########.fr       */
+/*   Created: 2017/03/27 10:30:58 by pdamoune          #+#    #+#             */
+/*   Updated: 2017/03/31 12:39:00 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
-void	prf_fill_data(t_arg *arg, char **data)
+void	prf_lltoa_base(char *result, long long n, unsigned int base)
 {
-	int i;
+	int			len;
+	int			mod;
 
-	i = 0;
-	if (!*data)
-		return ;
-	while (data[0][i] && J != SIZE_BUF)
+	len = 0;
+	result[len] = '0';
+	while (n > 0 || n < 0)
 	{
-		BUFFER[J++] = data[0][i++];
+		mod = ABS(n % base);
+		result[len] = mod + '0';
+		if (base >= 10)
+			if (!ft_isdigit(result[len]))
+				result[len] += 39;
+		if (n / base == 0 && n < 0)
+			result[len + 1] = '-';
+		n /= base;
+		len++;
 	}
-	if (J == SIZE_BUF)
-	{
-		RET += J;
-		J = 0;
-		write(1, BUFFER, SIZE_BUF);
-		prf_fill_data(arg, data);
-	}
-	*data = NULL;
+	ft_strrev(result);
 }

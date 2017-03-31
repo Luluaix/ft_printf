@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/03/29 17:30:13 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/03/31 13:44:28 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,23 @@
 # define MOD			arg->modifier
 # define TYPE			arg->type
 # define TEST_COMB(X)	(1 << X)
-# define FLAG_H			FLAG & 0b00001
-# define FLAG_P			FLAG & 0b00010
-# define FLAG_S			FLAG & 0b00100
-# define FLAG_M			FLAG & 0b01000
-# define FLAG_Z			FLAG & 0b10000
-# define TWO_FLAG		0b11000
-# define THREE_FLAG		0b11001
-# define FOUR_FLAG		0b11110
-# define FIVE_FLAG		0b11111
-# define MOD_HH			MOD & 0b000001
-# define MOD_H			MOD & 0b000010
-# define MOD_L			MOD & 0b000100
-# define MOD_LL			MOD & 0b001000
-# define MOD_J			MOD & 0b010000
-# define MOD_Z			MOD & 0b100000
+# define FLAG_H			(FLAG & 0b000001)
+# define FLAG_P			(FLAG & 0b000010)
+# define FLAG_S			(FLAG & 0b000100)
+# define FLAG_M			(FLAG & 0b001000)
+# define FLAG_Z			(FLAG & 0b010000)
+# define SIGN			(FLAG & 0b100000)
+# define SIGN_FLAG		0b100000
+# define TWO_FLAG		0b011000
+# define THREE_FLAG		0b011001
+# define FOUR_FLAG		0b011110
+# define FIVE_FLAG		0b011111
+# define MOD_HH			(MOD & 0b000001)
+# define MOD_H			(MOD & 0b000010)
+# define MOD_L			(MOD & 0b000100)
+# define MOD_LL			(MOD & 0b001000)
+# define MOD_J			(MOD & 0b010000)
+# define MOD_Z			(MOD & 0b100000)
 
 
 typedef struct s_form	t_form;
@@ -106,9 +108,13 @@ int		ft_printf(const char *format, ...);
 int		prf_parsing(t_arg *arg, const char *format);
 void 	prf_display_pars(t_arg *arg, const char *format);
 int		prf_conversion(t_arg *arg, va_list ap);
-void	prf_fill_data(char *data);
+void	prf_fill_data(t_arg *arg, char **data);
+void	prf_lltoa_base(char *result, long long n, unsigned int base);
 void	prf_type_percent(t_arg *arg, va_list ap);
 void	prf_type_s(t_arg *arg, va_list ap);
+void	prf_type_d(t_arg *arg, va_list ap);
+void	prf_set_padding(char **data, t_arg *arg, int len);
+
 
 // // void 	ft_set_flags(t_arg *arg, char type);
 //
