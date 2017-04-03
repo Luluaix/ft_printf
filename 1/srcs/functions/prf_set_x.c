@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 21:28:25 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/02 22:49:47 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/03 07:24:01 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ void 	prf_set_x(char *str, long long data, int base)
 	i = 0;
 	str[i++] = '0';
 	base == 16 ? str[i++] = 'x' : 0;
-	ft_putnbrel(data);
 	prf_lltoa_base(&str[i], (L)data, base);
 }

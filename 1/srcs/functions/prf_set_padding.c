@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:14:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/02 20:48:04 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/03 09:10:23 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ void 	prf_fill_c(t_arg *arg, int c)
 	}
 }
 
-void 	prf_set_sign(t_arg *arg, char **data)
+void 	prf_set_sign(t_arg *arg, char *data)
 {
-	if (!*data)
+	if (!data)
 		return ;
-	if (data[0][0] != '-' && ft_isdigit(data[0][0]))
+	if (data[0] != '-' && ft_isdigit(data[0]))
 	{
 		FLAG_S ? prf_fill_c(arg, ' ') : 0;
 		FLAG_P && FLAG_S ? J-- : 0;
 		FLAG_P ? prf_fill_c(arg, '+') : 0;
 	}
-	else if(data[0][0] == '-' && SIGN)
+	else if(data[0] == '-' && SIGN)
 	{
 		prf_fill_c(arg, '-');
-		data[0] = &data[0][1];
+		data = &data[1];
 		WIDTH++;
 	}
 }
 
-void	prf_set_padding(char **data, t_arg *arg, int len)
+void	prf_set_padding(char *data, t_arg *arg, int len)
 {
 	int c;
 
@@ -51,7 +51,7 @@ void	prf_set_padding(char **data, t_arg *arg, int len)
 	FLAG_Z ? c = '0' : 0;
 	if (FLAG_M)
 	{
-		if (data[0][0] == '-')
+		if (data[0] == '-')
 			prf_fill_data(arg, data);
 		prf_set_sign(arg, data);
 		prf_fill_data(arg, data);
@@ -68,7 +68,7 @@ void	prf_set_padding(char **data, t_arg *arg, int len)
 		prf_fill_c(arg, c);
 	if (WIDTH-- - len  > 0)
 	{
-		*data = &(data[0][1]);
+		data = &(data[1]);
 		prf_set_padding(data, arg, len);
 	}
 }

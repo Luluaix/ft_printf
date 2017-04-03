@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:00:32 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/02 20:48:22 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/03 07:27:40 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	prf_type_percent(t_arg *arg, va_list ap)
 	t_data	data;
 	int		len;
 
-	data.prc[0] = '%';
-	data.prc[1] = 0;
-	len = ft_strlen(data.prc);
+	data.c[0] = '%';
+	data.c[1] = 0;
+	len = 1;
 	// if (WIDTH <= len)
 	// {
 	// 	prf_fill_data(data.prc);
