@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:00:32 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/03 07:27:40 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/03 15:57:37 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	prf_type_percent(t_arg *arg, va_list ap)
 	data.c[0] = '%';
 	data.c[1] = 0;
 	len = 1;
+	FLAG &= TWO_FLAG;
+	FLAG_M ? FLAG &= FLAG_M : 0;
+	prf_set_padding(data.c, arg, 1);
+	prf_fill_data(arg, data.c);
 	// if (WIDTH <= len)
 	// {
 	// 	prf_fill_data(data.prc);

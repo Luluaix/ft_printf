@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 10:30:58 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/02 20:47:58 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/03 15:41:31 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	prf_lltoa_base(char *result, long long n, unsigned int base)
 		n /= base;
 		len++;
 	}
-	ft_strrev(result);
+	ft_strrev(result);	
 }

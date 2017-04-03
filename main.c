@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/03 10:35:07 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/03 21:06:54 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int	main()
 	// char	c;
 	int		i;
 
-	ptr = ft_strdup("=====");
+
+	ptr = ft_strdup("===");
 	// ft_putnbr_bin(0b11111111111111111111111111111111);
 	// ft_putnbrel(printf("coucoucoucou\n"));
 
-	ft_printf("%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n");
+	ft_printf("%010.5d\n", -123);
 	ft_putendl("");
-	ft_putnbrel(printf("%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n"));
+	ft_putnbrel(printf("%010.5d\n", -123));
 	// ft_printf("%p\n%p\n%p\n%p\n%p\n%p\n");
 	// ft_putendl("");
 	// ft_putnbrel(printf("%p\n%p\n%p\n%p\n%p\n%p\n"));
