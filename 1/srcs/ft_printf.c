@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/02 20:45:11 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 15:16:01 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (prf_parsing(&arg, format) > 0)
 	{
-		prf_display_pars(&arg, format);
+		// prf_display_pars(&arg, format);
 		prf_conversion(&arg, ap);
 		ft_bzero(&arg, sizeof(t_arg));
 		if (!prf_fill_buffer(format))
 			break;
 	}
 	RET += J;
-	prf_display_pars(&arg, format);
+	// prf_display_pars(&arg, format);
 	write(1, BUFFER, J);
-	return (1);
+	return (RET);
 }

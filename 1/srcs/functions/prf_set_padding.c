@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:14:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/04 09:43:54 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 14:24:58 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void 	prf_fill_c(t_arg *arg, char **data, int c)
 {
+	(void)&data;
 	BUFFER[J] = c;
 	J++;
 	WIDTH--;
@@ -27,6 +28,7 @@ void 	prf_fill_c(t_arg *arg, char **data, int c)
 
 void 	prf_set_sign(t_arg *arg, char **data, int len)
 {
+	(void)&len;
 	if (!*data)
 		return ;
 	if (!SIGN)

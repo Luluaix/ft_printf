@@ -1,0 +1,97 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fanie13 <fanie13@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/04/04 14:15:26 by fanie13           #+#    #+#              #
+#    Updated: 2017/04/04 15:15:32 by fanie13          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libftprintf.a
+
+C_INCLUDE_PATH += includes/ libft/include
+
+CFLAGS += -Wall -Wextra -Werror
+
+CFLAGS += $(foreach d, $(C_INCLUDE_PATH), -I$d)
+
+SRCS = srcs/ft_printf.c \
+		srcs/prf_parsing.c \
+		srcs/prf_display_pars.c \
+		srcs/prf_conversion.c \
+		srcs/functions/prf_set_padding.c \
+		srcs/functions/prf_fill_data.c \
+		srcs/functions/prf_lltoa_base.c \
+		srcs/functions/prf_set_x.c \
+		srcs/functions/prf_precision.c \
+		srcs/conversions/prf_type_percent.c \
+		srcs/conversions/prf_type_s.c \
+		srcs/conversions/prf_type_c.c \
+		srcs/conversions/prf_type_p.c \
+		srcs/conversions/prf_type_d.c \
+		srcs/conversions/prf_type_o.c \
+		srcs/conversions/prf_type_x.c \
+		srcs/conversions/prf_type_u.c
+
+LIBFT_FUNS = atoi \
+bzero count_c_words isalnum isalpha \
+isascii isblank isdigit islower isprint isspace \
+isupper isxdigit itoa lstadd lstdel lstdelone \
+lstiter lstmap lstnew memalloc memccpy memchr \
+memcmp memcpy memdel memmove memset putchar \
+putchar_fd putendl putendl_fd putnbr putnbr_fd \
+putstr putstr_fd sort_params sqrt strcat strchr \
+strclr strcmp strcpy strctrim strdel strdup \
+strequ striter striteri strjoin strlcat strlen \
+strmap strmapi strncat strncmp strncpy strnequ \
+strnew strnstr strrchr strrev strsplit strstr \
+strsub strtrim swap tolower toupper count_occur \
+conv_bin strdift sqrt_min strcstr putnbrel \
+memrealloc lst_find displaytab tabdel \
+strcsplit putnbr_bin ulltoa_base lltoa_base putaddr \
+strtoupper
+
+CFLAGS += $(foreach fun,$(LIBFT_FUNS),-Dft_$(fun)=ft_printf_libft_$(fun))
+
+OBJS = $(patsubst srcs/%.c,obj/%.o,$(SRCS))
+OBJS += $(foreach fun,$(LIBFT_FUNS),obj/libft/ft_$(fun).o)
+
+CP = cp
+
+RM = rm -f
+
+all: $(NAME)
+
+$(OBJS): | obj
+
+obj:
+	@mkdir -p $@
+	@mkdir -p $@/functions
+	@mkdir -p $@/conversions
+	@mkdir -p $@/libft
+
+obj/%.o: srcs/%.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+
+obj/libft/%.o: libft/src/%.c
+	@$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+
+$(NAME): $(OBJS)
+	@$(AR) -rcs $(NAME) $^
+
+clean:
+	$(RM) $(OBJS)
+
+libfttest: $(NAME) obj/main.o
+	$(CC) -o $@ obj/main.o -L. -lftprintf
+
+fclean: clean
+	$(RM) $(NAME)
+	$(RM) -rf obj
+
+re: fclean all
+
+.PHONY: all clean fclean re
