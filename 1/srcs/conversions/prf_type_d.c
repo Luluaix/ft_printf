@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 12:27:45 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/04 08:17:12 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 09:26:03 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	prf_type_d(t_arg *arg, va_list ap)
 	}
 	len = ft_strlen(ptr);
 	FLAG |= SIGN_FLAG;
-	ft_putnbr_bin(FLAG);
-	ft_putchar('\n');
+	!PRECI ? PRECI = len : 0;
 	prf_set_padding((char **)&ptr, arg, len);
-	prf_fill_data(arg, (char **)&ptr);
+	prf_fill_data(arg, (char **)&ptr, len);
 }

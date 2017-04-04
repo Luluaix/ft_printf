@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/04 08:28:49 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 09:13:55 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,9 @@ int		ft_printf(const char *format, ...);
 int		prf_parsing(t_arg *arg, const char *format);
 void 	prf_display_pars(t_arg *arg, const char *format);
 int		prf_conversion(t_arg *arg, va_list ap);
-void	prf_fill_data(t_arg *arg, char **data);
+void	prf_precision(t_arg *arg, char **data, int len);
+void	prf_fill_data(t_arg *arg, char **data, int len);
+void	prf_fill_c(t_arg *arg, char **data, int c);
 void	prf_lltoa_base(char *result, long long n, unsigned int base);
 void	prf_set_x(char *str, long long data, int base);
 void	prf_type_percent(t_arg *arg, va_list ap);

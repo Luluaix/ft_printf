@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 21:36:59 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/02 22:48:40 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 09:19:43 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	prf_type_c(t_arg *arg, va_list ap)
 	data.c[1] = 0;
 	if (WIDTH <= len)
 	{
-		prf_fill_data(arg, &s);
+		prf_fill_data(arg, &s, len);
 		return ;
 	}
 	FLAG &= TWO_FLAG;
 	FLAG_M ? FLAG &= FLAG_M : 0;
 	FLAG_M && !data.c[0] ? J++ : 0;
 	prf_set_padding(&s, arg, len);
-	prf_fill_data(arg, &s);
+	prf_fill_data(arg, &s, len);
 	!FLAG_M && !data.c[0] ? J++ : 0;
 }
