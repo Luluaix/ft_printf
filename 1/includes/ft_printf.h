@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/02 23:08:32 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 08:28:49 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@
 # define FLAG_S			(FLAG & 0b000100)
 # define FLAG_M			(FLAG & 0b001000)
 # define FLAG_Z			(FLAG & 0b010000)
-# define SIGN			(FLAG & 0b100000)
+# define SIGN			(FLAG & 0b1000000)
+# define SIGN_M			0b1000000
 # define SIGN_FLAG		0b100000
 # define TWO_FLAG		0b011000
 # define THREE_FLAG		0b011001

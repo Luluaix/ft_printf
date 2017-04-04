@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:14:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/02 20:48:04 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/04 08:32:34 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,19 @@ void 	prf_set_sign(t_arg *arg, char **data)
 {
 	if (!*data)
 		return ;
-	if (data[0][0] != '-' && ft_isdigit(data[0][0]))
+	if (!SIGN)
 	{
 		FLAG_S ? prf_fill_c(arg, ' ') : 0;
-		FLAG_P && FLAG_S ? J-- : 0;
+		if (FLAG_P && FLAG_S)
+		{
+			J--;
+			WIDTH++;
+		}
 		FLAG_P ? prf_fill_c(arg, '+') : 0;
 	}
-	else if(data[0][0] == '-' && SIGN)
+	else if(SIGN)
 	{
 		prf_fill_c(arg, '-');
-		data[0] = &data[0][1];
-		WIDTH++;
 	}
 }
 
