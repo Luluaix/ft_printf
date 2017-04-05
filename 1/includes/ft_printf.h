@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/04 09:13:55 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/05 10:13:26 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,19 @@
 # define MOD			arg->modifier
 # define TYPE			arg->type
 # define TEST_COMB(X)	(1 << X)
-# define FLAG_H			(FLAG & 0b000001)
-# define FLAG_P			(FLAG & 0b000010)
-# define FLAG_S			(FLAG & 0b000100)
-# define FLAG_M			(FLAG & 0b001000)
-# define FLAG_Z			(FLAG & 0b010000)
-# define SIGN			(FLAG & 0b1000000)
-# define SIGN_M			0b1000000
-# define SIGN_FLAG		0b100000
-# define TWO_FLAG		0b011000
-# define THREE_FLAG		0b011001
-# define FOUR_FLAG		0b011110
-# define FIVE_FLAG		0b011111
+# define FLAG_H			(FLAG & 0b0000001)
+# define FLAG_P			(FLAG & 0b0000010)
+# define FLAG_S			(FLAG & 0b0000100)
+# define FLAG_M			(FLAG & 0b0001000)
+# define FLAG_Z			(FLAG & 0b0010000)
+# define SIGNED			(FLAG & 0b0100000)
+# define NEGATIVE		(FLAG & 0b1000000)
+# define SIGN_NEG		0b1000000
+# define SIGN			0b0100000
+# define TWO_FLAG		0b0011000
+# define THREE_FLAG		0b0011001
+# define FOUR_FLAG		0b0011110
+# define FIVE_FLAG		0b0011111
 # define MOD_HH			(MOD & 0b000001)
 # define MOD_H			(MOD & 0b000010)
 # define MOD_L			(MOD & 0b000100)
@@ -109,7 +110,7 @@ int		ft_printf(const char *format, ...);
 int		prf_parsing(t_arg *arg, const char *format);
 void 	prf_display_pars(t_arg *arg, const char *format);
 int		prf_conversion(t_arg *arg, va_list ap);
-void	prf_precision(t_arg *arg, char **data, int len);
+void	prf_precision(t_arg *arg, char **data, int len, int c);
 void	prf_fill_data(t_arg *arg, char **data, int len);
 void	prf_fill_c(t_arg *arg, char **data, int c);
 void	prf_lltoa_base(char *result, long long n, unsigned int base);

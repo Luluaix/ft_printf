@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:24:04 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/04 09:42:31 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/05 10:19:53 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	prf_fill_data(t_arg *arg, char **data, int len)
 	i = 0;
 	if (!*data)
 		return ;
-	prf_precision(arg, data, len);
+	while (PRECI > len)
+	{
+		prf_precision(arg, data, len, 0);
+	}
 	while (data[0][i] && J != SIZE_BUF)
 	{
 		BUFFER[J++] = data[0][i++];

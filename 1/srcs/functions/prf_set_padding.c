@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:14:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/04 14:24:58 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/05 10:35:27 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 void 	prf_fill_c(t_arg *arg, char **data, int c)
 {
 	(void)&data;
+	if (WIDTH == PRECI)
+	{
+		prf_precision(arg, data, ft_strlen(*data), c);
+		return ;
+	}
 	BUFFER[J] = c;
 	J++;
 	WIDTH--;
@@ -31,7 +36,11 @@ void 	prf_set_sign(t_arg *arg, char **data, int len)
 	(void)&len;
 	if (!*data)
 		return ;
-	if (!SIGN)
+	if (SIGNED && NEGATIVE)
+	{
+		prf_fill_c(arg, data, '-');
+	}
+	else if (SIGNED)
 	{
 		FLAG_S ? prf_fill_c(arg, data, ' ') : 0;
 		if (FLAG_P && FLAG_S)
@@ -41,10 +50,7 @@ void 	prf_set_sign(t_arg *arg, char **data, int len)
 		}
 		FLAG_P ? prf_fill_c(arg, data, '+') : 0;
 	}
-	else if(SIGN)
-	{
-		prf_fill_c(arg, data, '-');
-	}
+	FLAG &= ~SIGNED;
 }
 
 void	prf_set_padding(char **data, t_arg *arg, int len)
@@ -63,16 +69,15 @@ void	prf_set_padding(char **data, t_arg *arg, int len)
 	}
 	if (!FLAG_M)
 		if (!FLAG_Z)
-			while (WIDTH - PRECI - 1 > 0)
+			while (WIDTH - len - 1 > 0)
 				prf_fill_c(arg, data, c);
-	while (WIDTH - PRECI > 0)
-		prf_fill_c(arg, data, ' ');
-	if (FLAG_S || FLAG_P || SIGN)
-		J--;
+	ft_putendl(*data);
 	prf_set_sign(arg, data, len);
-	while (WIDTH - PRECI > 0)
+	while (WIDTH - len > 0)
+		prf_fill_c(arg, data, ' ');
+	while (WIDTH - len > 0)
 		prf_fill_c(arg, data, c);
-	if (WIDTH-- - PRECI > 0)
+	if (WIDTH-- - len > 0)
 	{
 		*data = &(data[0][1]);
 		prf_set_padding(data, arg, len);
