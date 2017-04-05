@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 12:27:45 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/05 15:51:30 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/05 18:34:23 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ void	prf_type_d(t_arg *arg, va_list ap)
 	prf_lltoa_base(str, data.d, 10);
 	FLAG &= FOUR_FLAG;
 	FLAG |= SIGN;
-	WIDTH <= PRECI ? WIDTH = PRECI + 1 : 0;
+	WIDTH < PRECI ? WIDTH = PRECI : 0;
 	if (str[0] == '-')
 	{
 		ptr = &str[1];
 		FLAG |= SIGN_NEG;
 	}
+	!FLAG_M && (FLAG_P || FLAG_S || NEGATIVE) ? WIDTH += 1 : 0;
 	len = ft_strlen(ptr);
 	prf_set_padding((char **)&ptr, arg, len);
 }

@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 21:36:59 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/04 09:19:43 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/05 17:56:35 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void	prf_type_c(t_arg *arg, va_list ap)
 {
 	t_data	data;
-	char	str[2];
 	char 	*s;
 	int 	len;
 
-	s = str;
+	s = (char *)data.c;
 	len = 1;
 	data.c[0] = va_arg(ap, int);
 	data.c[1] = 0;
