@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/05 10:13:26 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/05 13:24:12 by fanie13          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,15 @@ int		prf_parsing(t_arg *arg, const char *format);
 void 	prf_display_pars(t_arg *arg, const char *format);
 int		prf_conversion(t_arg *arg, va_list ap);
 void	prf_precision(t_arg *arg, char **data, int len, int c);
+
 void	prf_fill_data(t_arg *arg, char **data, int len);
 void	prf_fill_c(t_arg *arg, char **data, int c);
-void	prf_lltoa_base(char *result, long long n, unsigned int base);
+
+void	prf_set_padding(char **data, t_arg *arg, int len);
+void 	prf_set_prefixe(t_arg *arg, char **data, int len);
 void	prf_set_x(char *str, long long data, int base);
+
+void	prf_lltoa_base(char *result, long long n, unsigned int base);
 void	prf_type_percent(t_arg *arg, va_list ap);
 void	prf_type_p(t_arg *arg, va_list ap);
 void	prf_type_s(t_arg *arg, va_list ap);
@@ -123,7 +128,7 @@ void	prf_type_d(t_arg *arg, va_list ap);
 void	prf_type_o(t_arg *arg, va_list ap);
 void	prf_type_x(t_arg *arg, va_list ap);
 void	prf_type_u(t_arg *arg, va_list ap);
-void	prf_set_padding(char **data, t_arg *arg, int len);
+
 
 
 // // void 	ft_set_flags(t_arg *arg, char type);

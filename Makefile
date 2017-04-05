@@ -6,7 +6,7 @@
 #    By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 11:25:43 by pdamoune          #+#    #+#              #
-#    Updated: 2017/04/04 08:45:50 by philippedamoune  ###   ########.fr        #
+#    Updated: 2017/04/05 13:24:58 by fanie13          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SOURCES	=	ft_printf.c \
 			functions/prf_fill_data.c \
 			functions/prf_lltoa_base.c \
 			functions/prf_set_x.c \
+			functions/prf_set_prefixe.c \
+			functions/prf_fill_c.c \
 			functions/prf_precision.c \
 			conversions/prf_type_percent.c \
 			conversions/prf_type_s.c \

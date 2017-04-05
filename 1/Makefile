@@ -6,7 +6,7 @@
 #    By: fanie13 <fanie13@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/04 14:15:26 by fanie13           #+#    #+#              #
-#    Updated: 2017/04/04 15:15:32 by fanie13          ###   ########.fr        #
+#    Updated: 2017/04/05 13:23:31 by fanie13          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ SRCS = srcs/ft_printf.c \
 		srcs/functions/prf_fill_data.c \
 		srcs/functions/prf_lltoa_base.c \
 		srcs/functions/prf_set_x.c \
+		srcs/functions/prf_set_prefixe.c \
+		srcs/functions/prf_fill_c.c \
 		srcs/functions/prf_precision.c \
 		srcs/conversions/prf_type_percent.c \
 		srcs/conversions/prf_type_s.c \
