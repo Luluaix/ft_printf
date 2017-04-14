@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 07:06:59 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/05 19:09:06 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/14 17:58:43 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void 	prf_precision(t_arg *arg, char **data, int len, int c)
 	// ft_putnbr_bin(FLAG), ft_putchar('\n');
 	// PRECI--;
 	// ft_putstr("c      = |"), ft_putchar(c), ft_putendl("|");
-
 	if (PRECI == WIDTH)
 	{
 		prf_set_prefixe(arg, data, len);

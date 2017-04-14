@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/05 13:24:12 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/14 19:02:44 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <limits.h>
 # define DEB ft_putendl("==== TEST ====");
+# define NL				ft_putchar('\n');
 # define BUFFER			g_buffer
 # define I				g_iformat
 # define J				g_ibuffer
@@ -27,24 +28,28 @@
 # define MOD			arg->modifier
 # define TYPE			arg->type
 # define TEST_COMB(X)	(1 << X)
-# define FLAG_H			(FLAG & 0b0000001)
-# define FLAG_P			(FLAG & 0b0000010)
-# define FLAG_S			(FLAG & 0b0000100)
-# define FLAG_M			(FLAG & 0b0001000)
-# define FLAG_Z			(FLAG & 0b0010000)
-# define SIGNED			(FLAG & 0b0100000)
-# define NEGATIVE		(FLAG & 0b1000000)
-# define SIGN_NEG		0b1000000
-# define SIGN			0b0100000
-# define TWO_FLAG		0b0011000
-# define THREE_FLAG		0b0011001
-# define FOUR_FLAG		0b0011110
-# define FIVE_FLAG		0b0011111
-# define MOD_HH			(MOD & 0b000001)
-# define MOD_H			(MOD & 0b000010)
-# define MOD_L			(MOD & 0b000100)
-# define MOD_LL			(MOD & 0b001000)
-# define MOD_J			(MOD & 0b010000)
+# define FLAG_H			(FLAG & 0b1)
+# define FLAG_P			(FLAG & 0b10)
+# define FLAG_S			(FLAG & 0b100)
+# define FLAG_M			(FLAG & 0b1000)
+# define FLAG_Z			(FLAG & 0b10000)
+# define FLAG_PREFIX	(FLAG & PREFIX)
+# define FLAG_Z			(FLAG & 0b10000)
+# define FLAG_Z			(FLAG & 0b10000)
+# define FLAG_Z			(FLAG & 0b10000)
+# define PREFIX			0b100000
+# define NEGATIVE		0b1000000
+# define OCTAL			0b10000000
+# define HEXA			0b100000000
+# define TWO_FLAG		0b11000
+# define THREE_FLAG		0b11001
+# define FOUR_FLAG		0b11110
+# define FIVE_FLAG		0b11111
+# define MOD_HH			(MOD & 0b1)
+# define MOD_H			(MOD & 0b10)
+# define MOD_L			(MOD & 0b100)
+# define MOD_LL			(MOD & 0b1000)
+# define MOD_J			(MOD & 0b10000)
 # define MOD_Z			(MOD & 0b100000)
 
 
@@ -117,7 +122,7 @@ void	prf_fill_c(t_arg *arg, char **data, int c);
 
 void	prf_set_padding(char **data, t_arg *arg, int len);
 void 	prf_set_prefixe(t_arg *arg, char **data, int len);
-void	prf_set_x(char *str, long long data, int base);
+void 	prf_set_x(t_arg *arg);
 
 void	prf_lltoa_base(char *result, long long n, unsigned int base);
 void	prf_type_percent(t_arg *arg, va_list ap);

@@ -6,13 +6,38 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/13 11:40:22 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/14 19:07:36 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "1/includes/ft_printf.h"
 #include <stdio.h>
 #define FLOAT 1
+
+void	ft_putfloat_bin(int n)
+{
+	int i;
+	int sign;
+	int expos;
+	int mantis;
+
+	sign = 0;
+	expos = 0;
+	mantis = 0;
+	i = 31;
+	(1 << i) & n ? sign = 1 : 0;
+	while (i-- > 23)
+		(1 << i) & n ? expos |= 1 << (i - 23): 0;
+	while (i-- > 0)
+		(1 << i) & n ? mantis |= 1 << i: 0;
+	ft_putbin_base(sign, 1);
+	ft_putnbrel(sign);
+	ft_putbin_base(expos, 8);
+	ft_putnbrel(expos);
+	ft_putbin_base(mantis, 23);
+	ft_putnbrel(mantis);
+}
+
 
 int	main()
 {
@@ -21,14 +46,43 @@ int	main()
 	// float	i;
 	// int j;
 	// int k;
+	// // unsigned char *pi;
+	// char *pf;
+	// int		*i;
+	float	f;
+	//
+	//
+	//
+	// // i = 256;
+	// pf = (char *)&f;
+	// *pf = 255;
+	// i = (int *)pf;
+	// pf++;
+	// pf++;
+	// pf++;
+	// float 	f;
+	// int 	*ptr;
+	// //
+	// f = 0.1415;
+	// ptr = (int *)(&f);
+	// //
+	// ft_putfloat_bin(*ptr);
+	// ft_putnbr_bin();
+	// pf--;
+	// ft_putnbr_bin(*pf);
+	// pf--;
+	// ft_putnbr_bin(*pf);
+	// pf--;
+	// ft_putnbr_bin((int)*pf);
 
 	// ptr = ft_strdup("=====");
 	// ft_putnbr_bin(0b11111111111111111111111111111111);
 	// ft_putnbrel(printf("coucoucoucou\n"));
-	ft_printf("debut|%+10.5d|fin", 123);
-	ft_putendl("");
-	ft_putnbrel(printf("debut|%f|fin", (1.2 * 10)));
-	ft_putendl("");
+	ft_printf("debut|%p|fin\n", &f);
+	printf("debut|%p|fin\n", &f);
+	// // ft_putendl("");
+	// ft_putnbrel(printf("debut|%p|fin", 0));
+	// ft_putendl("");
 	// i = 10.12345;
 	// i = (10.12345 - (int)i) * 10000000;
 	// printf("%p\n", ptr);
@@ -78,7 +132,7 @@ int	main()
 	// ft_putnbr_bin(10);
 	// ft_strdel(&str);
 	// ft_printf(str);
-	i = 21;
+	// i = 21;
 	// ft_putnbr(printf("bla = %.10d", i));
 	// ft_strdel(&ptr);
 	return (0);

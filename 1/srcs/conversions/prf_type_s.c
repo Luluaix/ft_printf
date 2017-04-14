@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:00:32 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/05 13:23:33 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/14 18:25:42 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ void	prf_type_s(t_arg *arg, va_list ap)
 	}
 	FLAG &= TWO_FLAG;
 	FLAG_M ? FLAG &= FLAG_M : 0;
+	PRECI = 0;
 	prf_set_padding(&data.s, arg, len);
 	prf_fill_data(arg, &data.s, len);
-
-	// if (!(*len_buffer = prf_set_string(arg, &str, 's')))
-	// 	*len_buffer = 1;
-	//
-	// return (str);
 }

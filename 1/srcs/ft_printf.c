@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/05 17:58:25 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/14 18:03:17 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_printf(const char *format, ...)
 			break;
 	}
 	RET += J;
-	// prf_display_pars(&arg, format);
+	prf_display_pars(&arg, format);
 	write(1, BUFFER, J);
 	return (RET);
 }
