@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 18:39:02 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/15 19:31:47 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int		g_ret;
 extern t_fonct	g_conv[];
 
 int		ft_printf(const char *format, ...);
-int		prf_parsing(t_arg *arg, const char *format);
+int		prf_parsing(t_arg *arg, const char *format, va_list ap);
 void 	prf_display_pars(t_arg *arg, const char *format);
 int		prf_conversion(t_arg *arg, va_list ap);
 void	prf_precision(t_arg *arg, char **data, int len, int c);

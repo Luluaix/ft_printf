@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 18:31:22 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/15 19:40:50 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_printf(const char *format, ...)
 	if (!prf_fill_buffer(format))
 		return (write(1, format, I));
 	va_start(ap, format);
-	while (prf_parsing(&arg, format) > 0)
+	while (prf_parsing(&arg, format, ap) > 0)
 	{
 		prf_display_pars(&arg, format);
 		prf_conversion(&arg, ap);
