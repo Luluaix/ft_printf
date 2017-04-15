@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:14:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/14 18:46:20 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/04/15 18:40:00 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	prf_set_padding(char **data, t_arg *arg, int len)
 		if (!FLAG_Z)
 			while (WIDTH - PRECI - len > 0)
 			{
-				DEB
 				prf_precision(arg, data, len, c);
 			}
+
 	prf_set_prefixe(arg, data, len);
 	while (WIDTH - len > 0)
 		prf_precision(arg, data, len, c);

@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 20:53:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/14 19:08:45 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/04/15 18:46:43 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	prf_type_p(t_arg *arg, va_list ap)
 	FLAG_M ? FLAG &= FLAG_M : 0;
 	FLAG |= PREFIX;
 	FLAG |= HEXA;
+	PRECI = 2;
 	prf_set_padding(&s, arg, len);
 	prf_fill_data(arg, &s, len);
 }

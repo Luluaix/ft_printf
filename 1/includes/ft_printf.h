@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/14 19:02:44 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/04/15 18:39:02 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # define DEB ft_putendl("==== TEST ====");
 # define NL				ft_putchar('\n');
+# define PB				ft_putstr(BUFFER)
 # define BUFFER			g_buffer
 # define I				g_iformat
 # define J				g_ibuffer
