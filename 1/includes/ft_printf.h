@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 19:31:47 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/15 20:56:53 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@
 # define MOD			arg->modifier
 # define TYPE			arg->type
 # define TEST_COMB(X)	(1 << X)
-# define FLAG_H			(FLAG & 0b1)
-# define FLAG_P			(FLAG & 0b10)
-# define FLAG_S			(FLAG & 0b100)
-# define FLAG_M			(FLAG & 0b1000)
-# define FLAG_Z			(FLAG & 0b10000)
+# define FLAG_H			(FLAG & HASHTAG)
+# define FLAG_P			(FLAG & PLUS)
+# define FLAG_S			(FLAG & SPACE)
+# define FLAG_M			(FLAG & MINUS)
+# define FLAG_Z			(FLAG & ZERO)
 # define FLAG_PREFIX	(FLAG & PREFIX)
-# define FLAG_Z			(FLAG & 0b10000)
-# define FLAG_Z			(FLAG & 0b10000)
-# define FLAG_Z			(FLAG & 0b10000)
+# define HASHTAG		0b1
+# define PLUS			0b10
+# define SPACE			0b100
+# define MINUS			0b1000
+# define ZERO			0b10000
 # define PREFIX			0b100000
 # define NEGATIVE		0b1000000
 # define OCTAL			0b10000000
@@ -82,10 +84,10 @@ struct		s_fonct
 union		u_data
 {
 	char			prc[2];	// caractere %
-	unsigned int	c[2];		//	caractere
+	unsigned int	c;		//	caractere
 	char			*s;		//	chaine de caracteres
 	wchar_t			*us;		//	equivalent a ls
-	void			*p;
+	unsigned int	p;
 
 	int				d;		//	chiffre decimal
 	int			 	i;		//	chiffre decimal

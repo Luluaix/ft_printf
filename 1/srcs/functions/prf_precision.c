@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 07:06:59 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/14 17:58:43 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/04/15 20:09:07 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void 	prf_precision(t_arg *arg, char **data, int len, int c)
 	{
 		prf_fill_c(arg, data, c);
 	}
-	ft_putstr("BUFFER = |"), ft_putstr(BUFFER), ft_putendl("|");
-	ft_putstr("*data  = |"), ft_putstr(*data), ft_putendl("|");
-	ft_putstr("WIDTH  = |"), ft_putnbr(WIDTH), ft_putendl("|");
-	ft_putstr("PRECI  = |"), ft_putnbr(PRECI), ft_putendl("|");
-	ft_putstr("len    = |"), ft_putnbr(len), ft_putendl("|");
+	// ft_putstr("BUFFER = |"), ft_putstr(BUFFER), ft_putendl("|");
+	// ft_putstr("*data  = |"), ft_putstr(*data), ft_putendl("|");
+	// ft_putstr("WIDTH  = |"), ft_putnbr(WIDTH), ft_putendl("|");
+	// ft_putstr("PRECI  = |"), ft_putnbr(PRECI), ft_putendl("|");
+	// ft_putstr("len    = |"), ft_putnbr(len), ft_putendl("|");
 }

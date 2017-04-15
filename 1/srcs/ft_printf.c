@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 19:40:50 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/15 21:20:37 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		prf_fill_buffer(const char *format)
 void	prf_set_struct(t_arg *arg)
 {
 	ft_bzero(arg, sizeof(t_arg));
+	// PRECI = -1;
 }
 
 int	ft_printf(const char *format, ...)
@@ -47,14 +48,14 @@ int	ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (prf_parsing(&arg, format, ap) > 0)
 	{
-		prf_display_pars(&arg, format);
+		// prf_display_pars(&arg, format);
 		prf_conversion(&arg, ap);
 		ft_bzero(&arg, sizeof(t_arg));
 		if (!prf_fill_buffer(format))
 			break;
 	}
 	RET += J;
-	prf_display_pars(&arg, format);
+	// prf_display_pars(&arg, format);
 	write(1, BUFFER, J);
 	return (RET);
 }

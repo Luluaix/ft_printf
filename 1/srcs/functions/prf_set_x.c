@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 21:28:25 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 18:34:54 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/15 20:46:26 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void 	prf_set_x(t_arg *arg)
 	J++;
 	WIDTH--;
 	BUFFER[J] = 'x';
+	TYPE == 'X' ? BUFFER[J] = 'X': 0;
 	J++;
 	WIDTH--;
 }

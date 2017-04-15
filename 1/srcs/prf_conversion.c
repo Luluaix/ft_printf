@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 21:27:42 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/14 18:07:52 by pdamoune         ###   ########.fr       */
+/*   Updated: 2017/04/15 20:58:56 by philippedamoune  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_fonct		g_conv[] =
 	// {'S', &ft_type_us},
 	{'d', &prf_type_d},
 	// {'i', &ft_type_d},
-	{'p', &prf_type_p},
+	{'p', &prf_type_x},
 	{'o', &prf_type_o},
 	{'u', &prf_type_u},
 	{'x', &prf_type_x},
