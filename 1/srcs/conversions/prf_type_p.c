@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 20:53:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 21:00:38 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 16:12:12 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	prf_type_p(t_arg *arg, va_list ap)
 
 	ft_bzero(str, 20);
 	s = str;
-	data.p = va_arg(ap, unsigned int);
+	data.p = va_arg(ap, void *);
 	prf_lltoa_base(str, (L)data.p, 16);
 	len = ft_strlen(str);
 	FLAG &= TWO_FLAG;

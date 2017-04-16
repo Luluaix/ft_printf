@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/31 11:14:32 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 21:09:06 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 19:38:33 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ int 	prf_flag_minus(char **data, t_arg *arg, int len)
 	int count = 0;
 
 	prf_set_prefixe(arg, data, len);
-	while (PRECI > len && count++ < PRECI - len)
+	while (PRECI > len && count++ < PRECI - len && TYPE != 's')
 	{
 		prf_precision(arg, data, len, '0');
 	}
-	PRECI = 0;
 	prf_fill_data(arg, data, len);
 	while (WIDTH - len > 0)
 		prf_precision(arg, data, len, ' ');
@@ -40,8 +39,8 @@ void	prf_set_padding(char **data, t_arg *arg, int len)
 		return ;
 	}
 	if (!FLAG_M)
-		if (!FLAG_Z || WIDTH > PRECI)
-			while (WIDTH - PRECI - len > 0)
+		if (!FLAG_Z)
+			while (WIDTH - PRECI - len - 1 > 0)
 			{
 				FLAG_Z ? c = ' ' : 0;
 				prf_precision(arg, data, len, c);

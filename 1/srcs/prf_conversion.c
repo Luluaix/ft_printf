@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 21:27:42 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/15 20:58:56 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 20:56:10 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_fonct		g_conv[] =
 	{'s', &prf_type_s},
 	// {'S', &ft_type_us},
 	{'d', &prf_type_d},
-	// {'i', &ft_type_d},
+	{'i', &prf_type_d},
 	{'p', &prf_type_x},
 	{'o', &prf_type_o},
 	{'u', &prf_type_u},
@@ -42,9 +42,10 @@ int		prf_conversion(t_arg *arg, va_list ap)
 {
 	int	i;
 
-	i = 0;
-	while (arg->type != g_conv[i].id)
-	 	i++;
+	i = -1;
+	while (arg->type != g_conv[++i].id)
+	 	if (i == 10)
+			return (0);
 	(g_conv[i].fonction)(arg, ap);
 	return (0);
 }

@@ -6,12 +6,14 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:30:34 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 21:35:58 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 20:57:58 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "1/includes/ft_printf.h"
 #include <stdio.h>
+#include <wchar.h>
+#include <limits.h>
 #define FLOAT 1
 
 void	ft_putfloat_bin(int n)
@@ -41,7 +43,7 @@ void	ft_putfloat_bin(int n)
 
 int	main()
 {
-	// double 	*ptr;
+	double 	*ptr;
 	// unsigned char	*c;
 	// float	i;
 	// int j;
@@ -57,7 +59,7 @@ int	main()
 	// pf = (char *)&f;
 	// *pf = 255;
 	// i = (int *)pf;
-	// pf++;
+// pf++;
 	// pf++;
 	// pf++;
 	// float 	f;
@@ -78,10 +80,10 @@ int	main()
 	// ptr = ft_strdup("=====");
 	// ft_putnbr_bin(0b11111111111111111111111111111111);
 	// ft_putnbrel(printf("coucoucoucou\n"));
-	ft_printf("debut|%*0.5p|fin\n", 15, 20);
-	printf("debut|%*0.5p|fin\n", 15, 20);
-	ft_printf("debut|%0*.1s|fin\n", 15, "abc");
-	printf("debut|%0*.1s|fin\n", 15, "abc");
+	// ft_printf("debut|%*0.5p|fin\n", 15, 20);
+	// printf("debut|%*0.5p|fin\n", 15, 20);
+	// ft_printf("debut|% *.3d|fin\n", 15, -48);
+	// printf("debut|% *.3d|fin\n", 15, -48);
 	// // ft_putendl("");
 	// ft_putnbrel(printf("debut|%p|fin", 0));
 	// ft_putendl("");
@@ -97,18 +99,74 @@ int	main()
 	// printf("%020000000u", 1);
 	// ft_putnbrel(printf("\n%lls", "salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut|salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut", "===", 1000000000000));
 	// ft_putnbrel(printf("debut% 10smilieu% 15pfin% 3%", "==", "===", 0));
+	f = 5.5;
 	// ft_putnbrel(ft_printf("111|%.015d|333\n", 50));
-	// ft_putnbrel(printf("\n| %% |%%|\n| %%-|%%|\n") + 1);
-	// ft_putnbrel(printf("\n| c |%c|\n| c-|%20c|\n", 99, -50));
-	// ft_putnbrel(printf("\n| C |%C|\n| C-|%20C|\n", 99, 0));
-	// ft_putnbrel(printf("\n| s |%s|\n| s-|%20s|\n", "string", 0));
-	// ft_putnbrel(printf("\n| S |%S|\n| S-|%20S|\n", L"STRING", 0));
-	// ft_putnbrel(printf("\n| p |%p|\n| p-|%20p|\n", ptr, -50));
-	// ft_putnbrel(printf("\n| d |%d|\n| d-|%20d|\n", 5, -50));
-	// ft_putnbrel(printf("\n| o |%o|\n| o-|%20o|\n", 5, -50));
-	// ft_putnbrel(printf("\n| u |%u|\n| u-|%20u|\n", 5, -50));
-	// ft_putnbrel(printf("\n| x |%x|\n| x-|%20x|\n", 5, -50));
-	// ft_putnbrel(printf("\n| X |%X|\n| X-|%20X|\n", 5, -50));
+	// printf("========== %% ===========\n");
+	// ft_putnbrel(printf("printf    = |%50%|\n"));
+	// ft_putnbrel(ft_printf("ft_printf = |%%|\n"));
+	// printf("========== s ===========\n");
+	// clock_t time;
+	// time = clock();
+	// int i = 2147483647;
+	// long l = 2147483647;
+	// long long ll = 9223372036854775807;
+	// char c = 0;
+	// intmax_t im = 9223372036854775807;
+
+	// while ((double)time/CLOCKS_PER_SEC < 15)
+	// {
+	//  time = clock();
+	// //  ft_putnbrel((double)time/CLOCKS_PER_SEC);
+	//  ft_printf("\n");
+	//  ft_printf("%%\n");
+	//  ft_printf("%d\n", 42);
+	//  ft_printf("%d%d\n", 42, 41);
+	//  ft_printf("%d%d%d\n", 42, 43, 44);
+	//  ft_printf("%ld\n", l);
+	//  ft_printf("%lld\n", ll);
+	// //  ft_printf("%x %X %p %20.15d\n", 505, 505, &ll, 54321);
+	// //  ft_printf("%-10d % d %+d %010d %hhd\n", 3, 3, 3, 1, c);
+	// //  ft_printf("%jd %zd %u %o %#08x\n", im, (size_t)i, i, 40, 42);
+	// //  ft_printf("%x %#X %S %s%s\n", 1000, 1000, L"ݗݜशব", "test", "test2");
+	//  ft_printf("%s%s%s\n", "test", "test", "test");
+	// //  ft_printf("%C\n", 15000);
+	// }
+	// ft_putnbrel(printf("printf    = |111%s333%s555|\n", "222", "444"));
+	// ft_putnbrel(ft_printf("printf    = |111%s333%s555|\n", "222", "444"));
+	// printf("========== S ===========\n");
+	// // ft_putnbrel(printf("printf    = |%S|\n", L"\x82STRING"));
+	// // ft_putnbrel(ft_printf("ft_printf = |%S|\n", L"STRING"));
+	// printf("========== c ===========\n");
+	// ft_putnbrel(printf("printf    = |%c|\n", 65));
+	// ft_putnbrel(ft_printf("ft_printf = |%c|\n", 65));
+	// printf("========== C ===========\n");
+	// // // ft_putnbrel(ft_printf("\n========== C ===========\nft_printf = |%C|\n", 99));
+	// printf("========== p ===========\n");
+	ft_putnbrel(printf("%c", 0));
+	ft_putnbrel(ft_printf("%c", 0));
+	// printf("========== d ===========\n");
+	// ft_putnbrel(printf("printf    = |%ld|\n", ULLONG_MAX + 1));
+	// ft_putnbrel(ft_printf("ft_printf = |%ld|\n", ULLONG_MAX + 1));
+	// printf("========== u ===========\n");
+	// ft_putnbrel(printf("printf    = |%10u|\n", 1));
+	// ft_putnbrel(ft_printf("ft_printf = |%10u|\n", 1));
+	// printf("========== o ===========\n");
+	// ft_putnbrel(printf("printf    = |%#lo|\n", 10));
+	// ft_putnbrel(ft_printf("ft_printf = |%#lo|\n", 10));
+	// printf("========== o ===========\n");
+	// ft_putnbrel(printf("printf    = |%#O|\n", -5000000000000000000));
+	// ft_putnbrel(ft_printf("ft_printf = |%#o|\n", -5000000000000000000));
+	// ft_putnbrel(printf("\n========== u ===========\nprintf = |%u|\n", 5));
+	// // ft_putnbrel(ft_printf("\n========== u ===========\nft_printf = |%u|\n", 5));
+	// // ft_putnbrel(printf("\n========== U ===========\nprintf = |%u|\n", 5));
+	// // // ft_putnbrel(ft_printf("\n========== U ===========\nft_printf = |%u|\n", 5));
+	// printf("========== x ===========\n");
+	// ft_putnbrel(printf("printf    = |%#x|\n", 0));
+	// ft_putnbrel(ft_printf("ft_printf = |%#x|\n", 0));
+	// printf("========== X ===========\n");
+	// ft_putnbrel(printf("printf    = |%#X|\n", -500000000));
+	// ft_putnbrel(ft_printf("ft_printf = |%#X|\n", -500000000));
+
 	// ft_putnbrel(printf("\n| a |%a|\n| a-|%20a|\n", 5., -50));
 	// ft_putnbrel(printf("\n| A |%A|\n| A-|%20A|\n", 5., -50));
 	// ft_putnbrel(printf("\n| e |%e|\n| e-|%20e|\n", 5., -50));

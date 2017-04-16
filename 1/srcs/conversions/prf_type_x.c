@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:08 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 21:01:15 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 20:54:24 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 void	prf_type_x(t_arg *arg, va_list ap)
 {
 	t_data	data;
-	char	str[20];
+	char	str[21];
 	char 	*s;
 	int 	len;
 
-	ft_bzero(str, 20);
+	ft_bzero(str, 21);
 	s = str;
-	data.x = va_arg(ap, unsigned int);
-	prf_lltoa_base(s, (L)data.x, 16);
+	TYPE == 'p' ? MOD = 0b100 : 0;
+	prf_set_arg(arg, &data, ap, 'u');
+	data.x == 0 ? FLAG &= ~FLAG_H : 0;
+	prf_ulltoa_base(s, data.x, 16);
 	len = ft_strlen(str);
 	TYPE == 'p' ? FLAG |= HASHTAG : 0;
+	 // equivalent a #lx;
 	TYPE == 'X' ? ft_strtoupper(s) : 0;
 	FLAG &= THREE_FLAG;
 	FLAG |= PREFIX;

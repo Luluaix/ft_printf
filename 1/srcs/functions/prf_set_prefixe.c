@@ -6,7 +6,7 @@
 /*   By: fanie13 <fanie13@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 13:17:29 by fanie13           #+#    #+#             */
-/*   Updated: 2017/04/15 20:37:47 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 16:01:43 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ void 	prf_set_prefixe(t_arg *arg, char **data, int len)
 	FLAG & NEGATIVE ? prf_fill_c(arg, data, '-') : 0;
 	FLAG & OCTAL ? prf_fill_c(arg, data, '0') : 0;
 	FLAG & HEXA ? prf_set_x(arg) : 0;
-	ft_putnbr_bin(FLAG);
 	FLAG &= ~(FLAG & PREFIX);
 }

@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 22:17:35 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 21:20:37 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 20:38:03 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ int		prf_fill_buffer(const char *format)
 	return (0);
 }
 
-void	prf_set_struct(t_arg *arg)
+void	prf_set_data(t_arg *arg)
 {
 	ft_bzero(arg, sizeof(t_arg));
-	// PRECI = -1;
+	I = 0;
+	J = 0;
+	RET = 0;
+	PRECI = -1;
 }
 
 int	ft_printf(const char *format, ...)
@@ -40,9 +43,7 @@ int	ft_printf(const char *format, ...)
 	va_list		ap;
 	t_arg		arg;
 
-	I = 0;
-	J = 0;
-	prf_set_struct(&arg);
+	prf_set_data(&arg);
 	if (!prf_fill_buffer(format))
 		return (write(1, format, I));
 	va_start(ap, format);
@@ -51,6 +52,7 @@ int	ft_printf(const char *format, ...)
 		// prf_display_pars(&arg, format);
 		prf_conversion(&arg, ap);
 		ft_bzero(&arg, sizeof(t_arg));
+		arg.precision = -1;
 		if (!prf_fill_buffer(format))
 			break;
 	}

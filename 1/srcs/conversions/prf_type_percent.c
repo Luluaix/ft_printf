@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 15:00:32 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/04 14:25:29 by fanie13          ###   ########.fr       */
+/*   Updated: 2017/04/16 19:47:21 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,22 @@
 void	prf_type_percent(t_arg *arg, va_list ap)
 {
 	t_data	data;
-	int		len;
+	char *s;
 
 	(void)&ap;
-	(void)&arg;
+	s = data.prc;
 	data.prc[0] = '%';
 	data.prc[1] = 0;
-	len = ft_strlen(data.prc);
+	// if (WIDTH <= len)
+	// {
+	// 	prf_fill_data(arg, &s, len);
+	// 	return ;
+	// }
+	FLAG &= TWO_FLAG;
+	FLAG_M ? FLAG &= FLAG_M : 0;
+	// PRECI = 0;
+	prf_set_padding(&s, arg, 1);
+	prf_fill_data(arg, &s, 1);
 	// if (WIDTH <= len)
 	// {
 	// 	prf_fill_data(data.prc);
@@ -35,7 +44,7 @@ void	prf_type_percent(t_arg *arg, va_list ap)
 
 	// prf_fill_data_test(data.prc, FLAG, WIDTH, len);
 
-	// if (!(*len_buffer = prf_set_string(arg, &str, 's')))
+	// if (!(*len_buffer = prf_set_string(arg, &data.prctr, 's')))
 	// 	*len_buffer = 1;
 	//
 	// return (str);

@@ -6,7 +6,7 @@
 /*   By: philippe <philippe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 15:12:56 by philippe          #+#    #+#             */
-/*   Updated: 2017/04/15 20:56:53 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 19:40:10 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define THREE_FLAG		0b11001
 # define FOUR_FLAG		0b11110
 # define FIVE_FLAG		0b11111
+# define NEG_FLAG		0b1111001
 # define MOD_HH			(MOD & 0b1)
 # define MOD_H			(MOD & 0b10)
 # define MOD_L			(MOD & 0b100)
@@ -87,24 +88,19 @@ union		u_data
 	unsigned int	c;		//	caractere
 	char			*s;		//	chaine de caracteres
 	wchar_t			*us;		//	equivalent a ls
-	unsigned int	p;
+	void			*p;
 
-	int				d;		//	chiffre decimal
-	int			 	i;		//	chiffre decimal
+	long long 			d;
+	unsigned long long	x;
 
-	unsigned int	o;		//	chiffre octal
-	unsigned int	u;		//	chiffre decimal
-	unsigned int	x;		//	chiffre hexa
-	unsigned int	ux;		//	chiffre hexa em majuscule
-
-	double			f;		//	chiffre a vrigule sans l exposant
-	double			uf;		//	???????????????????????????????
-	double			e;		//	chffre a virgule avec l exposant
-	double			ue;		//	???????????????????????????????
-	double			g;		//	converti en f ou e, utilise si l exposant < -4 ou >= precision
-	double			ug;		//	comme f mais avec E et F
-	double			a;		//	argument de type double convertis en hexa prefixe 0x
-	double			ua;		//	argument de type double convertis en hexa prefixe 0X
+	// double			f;		//	chiffre a vrigule sans l exposant
+	// double			uf;		//	???????????????????????????????
+	// double			e;		//	chffre a virgule avec l exposant
+	// double			ue;		//	???????????????????????????????
+	// double			g;		//	converti en f ou e, utilise si l exposant < -4 ou >= precision
+	// double			ug;		//	comme f mais avec E et F
+	// double			a;		//	argument de type double convertis en hexa prefixe 0x
+	// double			ua;		//	argument de type double convertis en hexa prefixe 0X
 };
 
 
@@ -123,11 +119,13 @@ void	prf_precision(t_arg *arg, char **data, int len, int c);
 void	prf_fill_data(t_arg *arg, char **data, int len);
 void	prf_fill_c(t_arg *arg, char **data, int c);
 
+void 	prf_set_arg(t_arg *arg, t_data *data, va_list ap, int c);
 void	prf_set_padding(char **data, t_arg *arg, int len);
 void 	prf_set_prefixe(t_arg *arg, char **data, int len);
 void 	prf_set_x(t_arg *arg);
 
 void	prf_lltoa_base(char *result, long long n, unsigned int base);
+void	prf_ulltoa_base(char *result, unsigned long long n, unsigned int base);
 void	prf_type_percent(t_arg *arg, va_list ap);
 void	prf_type_p(t_arg *arg, va_list ap);
 void	prf_type_s(t_arg *arg, va_list ap);

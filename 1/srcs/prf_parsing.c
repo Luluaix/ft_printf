@@ -6,7 +6,7 @@
 /*   By: pdamoune <pdamoune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:06:21 by pdamoune          #+#    #+#             */
-/*   Updated: 2017/04/15 19:51:16 by philippedamoune  ###   ########.fr       */
+/*   Updated: 2017/04/16 20:25:58 by pdamoune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		ft_modifier(t_arg *arg, const char *format)
 int		ft_precision(t_arg *arg, const char *format, va_list ap)
 {
 	I++;
+	arg->precision = 0;
 	if (format[I] != '0' && ft_isdigit(format[I]))
 		arg->precision = ABS(ft_atoi(&format[I]));
 	while (ft_flags(arg, format, ap))
@@ -91,6 +92,8 @@ int		ft_width(t_arg *arg, const char *format, va_list ap)
 	{
 		if (format[I] != '.')
 			return (ft_modifier(arg, format));
+		DEB
+		ft_putnbrel(PRECI);
 		return (ft_precision(arg, format, ap));
 	}
 	arg->width = ft_atoi(&format[I]);
